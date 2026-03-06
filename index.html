@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0068)file:///C:/Users/juann/Downloads/FlexPQR_Portal_Documentacion_1.html -->
+<!-- saved from url=(0068)file:///C:/Users/juann/Downloads/FlexPQR_Portal_Documentacion_4.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1412,43 +1412,79 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
 
 </main>
 
-<script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const docTitles = {
-  'cover': 'Portal de Documentación FlexPQR',
-  'doc01': 'DOC-01 — Arquitectura Técnica',
-  'doc03': 'DOC-03 — Propuesta Comercial',
-  'doc04': 'DOC-04 — SLA',
-  'doc05': 'DOC-05 — Términos y Condiciones'
-};
 
-function showDoc(id) {
-  // Hide all panels
-  document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
-  // Show target
-  const panel = document.getElementById('panel-' + id);
-  if (panel) panel.classList.add('active');
 
-  // Update header title
-  const titleEl = document.getElementById('headerDocTitle');
-  if (titleEl) titleEl.innerHTML = id === 'cover'
-    ? 'Portal de Documentación Técnica y Comercial'
-    : '<span>' + docTitles[id] + '</span>';
+<script>
+(function() {
+  var docTitles = {
+    'cover': 'Portal de Documentación FlexPQR',
+    'doc01': 'DOC-01 — Arquitectura Técnica',
+    'doc03': 'DOC-03 — Propuesta Comercial',
+    'doc04': 'DOC-04 — SLA',
+    'doc05': 'DOC-05 — Términos y Condiciones'
+  };
 
-  // Update sidebar active state
-  document.querySelectorAll('.doc-group-header').forEach(h => h.classList.remove('active'));
-  if (id !== 'cover') {
-    const num = id.replace('doc', '');
-    const grp = document.getElementById('grp-' + num);
-    if (grp) grp.querySelector('.doc-group-header').classList.add('active');
-  }
+  window.showDoc = function(id) {
+    var panels = document.querySelectorAll('.doc-panel');
+    for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    var panel = document.getElementById('panel-' + id);
+    if (panel) panel.classList.add('active');
 
-function toggleGroup(grpId) {
-  const subNav = document.getElementById('sub-' + grpId);
-  if (!subNav) return;
-  const isOpen = subNav.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.sub-nav').forEach(s => s.classList.remove('open'));
-  if (!isOpen) s</script></body></html>
+    var titleEl = document.getElementById('headerDocTitle');
+    if (titleEl) {
+      if (id === 'cover') {
+        titleEl.innerHTML = 'Portal de Documentación Técnica y Comercial';
+      } else {
+        titleEl.innerHTML = '<span>' + (docTitles[id] || id) + '</span>';
+      }
+    }
+
+    var headers = document.querySelectorAll('.doc-group-header');
+    for (var j = 0; j < headers.length; j++) headers[j].classList.remove('active');
+
+    if (id !== 'cover') {
+      var num = id.replace('doc', '');
+      var grp = document.getElementById('grp-' + num);
+      if (grp) {
+        var hdr = grp.querySelector('.doc-group-header');
+        if (hdr) hdr.classList.add('active');
+      }
+    }
+
+    window.scrollTo(0, 0);
+  };
+
+  window.toggleGroup = function(grpId) {
+    var subNav = document.getElementById('sub-' + grpId);
+    if (!subNav) return;
+    var isOpen = subNav.classList.contains('open');
+    var allSubs = document.querySelectorAll('.sub-nav');
+    for (var i = 0; i < allSubs.length; i++) allSubs[i].classList.remove('open');
+    if (!isOpen) subNav.classList.add('open');
+  };
+
+  window.scrollToAnchor = function(anchorId) {
+    var el = document.getElementById(anchorId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Reading progress bar
+  window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    var bar = document.getElementById('progressBar');
+    if (bar) bar.style.width = progress + '%';
+  });
+
+  // T&C accordion
+  document.addEventListener('click', function(e) {
+    var head = e.target.closest ? e.target.closest('.tc-article-head') : null;
+    if (!head) return;
+    var article = head.closest('.tc-article');
+    if (article) article.classList.toggle('open');
+  });
+})();
+</script>
+
+</body></html>
