@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0068)file:///C:/Users/juann/Downloads/FlexPQR_Portal_Documentacion_4.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FlexPQR — Portal de Documentación</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue-950: #060E1E;
@@ -618,7 +618,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
   <div class="sidebar-portal-label">Documentos</div>
 
   <div class="doc-group">
-    <div class="doc-group-header" onclick="showDoc(&#39;cover&#39;)">
+    <div class="doc-group-header" onclick="showDoc('cover')">
       <div class="doc-num">⌂</div>
       <div class="doc-group-info">
         <div class="doc-group-title">Inicio</div>
@@ -628,7 +628,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
   </div>
 
   <div class="doc-group" id="grp-01">
-    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-01&#39;); showDoc(&#39;doc01&#39;)">
+    <div class="doc-group-header" onclick="toggleGroup('grp-01'); showDoc('doc01')">
       <div class="doc-num">01</div>
       <div class="doc-group-info">
         <div class="doc-group-title">Arquitectura Técnica</div>
@@ -637,16 +637,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <span class="doc-chevron">▶</span>
     </div>
     <div class="sub-nav" id="sub-grp-01">
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-vision&#39;)">Visión General</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-stack&#39;)">Stack Tecnológico</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-seguridad&#39;)">Seguridad Multi-Tenant</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-flujo&#39;)">Flujo de Procesamiento</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-compliance&#39;)">Cumplimiento Legal</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a01-vision')">Visión General</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a01-stack')">Stack Tecnológico</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a01-seguridad')">Seguridad Multi-Tenant</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a01-flujo')">Flujo de Procesamiento</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a01-compliance')">Cumplimiento Legal</div>
     </div>
   </div>
 
   <div class="doc-group" id="grp-03">
-    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-03&#39;); showDoc(&#39;doc03&#39;)">
+    <div class="doc-group-header" onclick="toggleGroup('grp-03'); showDoc('doc03')">
       <div class="doc-num">03</div>
       <div class="doc-group-info">
         <div class="doc-group-title">Propuesta Comercial</div>
@@ -655,15 +655,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <span class="doc-chevron">▶</span>
     </div>
     <div class="sub-nav" id="sub-grp-03">
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-alcance&#39;)">Alcance y Módulos</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-planes&#39;)">Planes y Precios</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-cronograma&#39;)">Cronograma</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-pago&#39;)">Forma de Pago</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a03-alcance')">Alcance y Módulos</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a03-planes')">Planes y Precios</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a03-cronograma')">Cronograma</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a03-pago')">Forma de Pago</div>
     </div>
   </div>
 
   <div class="doc-group" id="grp-04">
-    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-04&#39;); showDoc(&#39;doc04&#39;)">
+    <div class="doc-group-header" onclick="toggleGroup('grp-04'); showDoc('doc04')">
       <div class="doc-num">04</div>
       <div class="doc-group-info">
         <div class="doc-group-title">SLA</div>
@@ -672,15 +672,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <span class="doc-chevron">▶</span>
     </div>
     <div class="sub-nav" id="sub-grp-04">
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-uptime&#39;)">Uptime Garantizado</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-performance&#39;)">Performance del Sistema</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-soporte&#39;)">Soporte Técnico</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-backups&#39;)">Backups y Recuperación</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a04-uptime')">Uptime Garantizado</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a04-performance')">Performance del Sistema</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a04-soporte')">Soporte Técnico</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a04-backups')">Backups y Recuperación</div>
     </div>
   </div>
 
   <div class="doc-group" id="grp-05">
-    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-05&#39;); showDoc(&#39;doc05&#39;)">
+    <div class="doc-group-header" onclick="toggleGroup('grp-05'); showDoc('doc05')">
       <div class="doc-num">05</div>
       <div class="doc-group-info">
         <div class="doc-group-title">Términos y Condiciones</div>
@@ -689,10 +689,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <span class="doc-chevron">▶</span>
     </div>
     <div class="sub-nav" id="sub-grp-05">
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-uso&#39;)">Uso Aceptable</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-datos&#39;)">Tratamiento de Datos</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-pi&#39;)">Propiedad Intelectual</div>
-      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-terminacion&#39;)">Vigencia y Terminación</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a05-uso')">Uso Aceptable</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a05-datos')">Tratamiento de Datos</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a05-pi')">Propiedad Intelectual</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor('a05-terminacion')">Vigencia y Terminación</div>
     </div>
   </div>
 </nav>
@@ -707,27 +707,27 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <h1>Portal de<br><em>Documentación</em><br>FlexPQR</h1>
       <p class="cover-desc">Documentación técnica y comercial completa de la plataforma de gestión inteligente de PQRS y Tutelas. Versión 2.0 — Marzo 2026.</p>
       <div class="cover-docs">
-        <div class="cover-doc-card" onclick="showDoc(&#39;doc01&#39;)">
+        <div class="cover-doc-card" onclick="showDoc('doc01')">
           <div class="cdc-num">DOC-01</div>
           <div class="cdc-title">Arquitectura Técnica</div>
         </div>
           <div class="cdc-title">Análisis de Costos</div>
         </div>
-        <div class="cover-doc-card" onclick="showDoc(&#39;doc03&#39;)">
+        <div class="cover-doc-card" onclick="showDoc('doc03')">
           <div class="cdc-num">DOC-03</div>
           <div class="cdc-title">Propuesta Comercial</div>
         </div>
-        <div class="cover-doc-card" onclick="showDoc(&#39;doc04&#39;)">
+        <div class="cover-doc-card" onclick="showDoc('doc04')">
           <div class="cdc-num">DOC-04</div>
           <div class="cdc-title">SLA</div>
         </div>
-        <div class="cover-doc-card" onclick="showDoc(&#39;doc05&#39;)">
+        <div class="cover-doc-card" onclick="showDoc('doc05')">
           <div class="cdc-num">DOC-05</div>
           <div class="cdc-title">Términos y Condiciones</div>
         </div>
       </div>
     </div>
-  
+  </div>
 
   <!-- ══════════ DOC 01 — ARQUITECTURA ══════════ -->
   <div class="doc-panel" id="panel-doc01">
@@ -932,7 +932,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <div class="doc-footer">
         <div class="doc-footer-left">DOC-01 · Arquitectura Técnica · v2.0</div>
         <div class="doc-footer-right">
-          <button class="nav-btn next" onclick="showDoc(&#39;doc03&#39;)">Propuesta Comercial →</button>
+          <button class="nav-btn next" onclick="showDoc('doc03')">Propuesta Comercial →</button>
         </div>
       </div>
     </div>
@@ -1089,8 +1089,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <div class="doc-footer">
         <div class="doc-footer-left">DOC-03 · Propuesta Comercial v2.0 · Válida 30 días</div>
         <div class="doc-footer-right">
-          <button class="nav-btn prev" onclick="showDoc(&#39;doc01&#39;)">← Arquitectura</button>
-          <button class="nav-btn next" onclick="showDoc(&#39;doc04&#39;)">SLA →</button>
+          <button class="nav-btn prev" onclick="showDoc('doc01')">← Arquitectura</button>
+          <button class="nav-btn next" onclick="showDoc('doc04')">SLA →</button>
         </div>
       </div>
     </div>
@@ -1244,7 +1244,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
         <table class="data-table">
           <thead><tr><th>Canal</th><th>Horario</th><th>Planes</th></tr></thead>
           <tbody>
-            <tr><td>Email: <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b38243b24393f2e0b2d272e333b3a39652824">[email&nbsp;protected]</a></td><td>Lun-Vie 8:00-18:00 COT</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b38243b24393f2e0b2d272e333b3a39652824">[email&#160;protected]</a></td><td>Lun-Vie 8:00-18:00 COT</td><td><span class="badge green">Todos</span></td></tr>
             <tr><td>Chat en el dashboard</td><td>Lun-Vie 8:00-18:00 COT</td><td><span class="badge blue">Pro / Enterprise</span></td></tr>
             <tr><td>WhatsApp prioritario</td><td>Lun-Vie 7:00-20:00 COT</td><td><span class="badge purple">Enterprise</span></td></tr>
             <tr><td>Línea de emergencias (tutelas)</td><td>24/7</td><td><span class="badge purple">Enterprise</span></td></tr>
@@ -1255,8 +1255,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <div class="doc-footer">
         <div class="doc-footer-left">DOC-04 · SLA v1.0 · Vigente desde Marzo 2026</div>
         <div class="doc-footer-right">
-          <button class="nav-btn prev" onclick="showDoc(&#39;doc03&#39;)">← Propuesta</button>
-          <button class="nav-btn next" onclick="showDoc(&#39;doc05&#39;)">Términos →</button>
+          <button class="nav-btn prev" onclick="showDoc('doc03')">← Propuesta</button>
+          <button class="nav-btn next" onclick="showDoc('doc05')">Términos →</button>
         </div>
       </div>
     </div>
@@ -1392,10 +1392,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
         <table class="data-table">
           <thead><tr><th>Asunto</th><th>Contacto</th></tr></thead>
           <tbody>
-            <tr><td>Consultas legales y contractuales</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab6bfbdbbb69abcb6bfa2aaaba8f4b9b5">[email&nbsp;protected]</a></td></tr>
-            <tr><td>Tratamiento de datos personales</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="345055405b47745258514c4445461a575b">[email&nbsp;protected]</a></td></tr>
-            <tr><td>Soporte técnico</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="285b4758475a5c4d684e444d5058595a064b47">[email&nbsp;protected]</a></td></tr>
-            <tr><td>Comercial</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6e6260687f6e646c614d6b6168757d7c7f236e62">[email&nbsp;protected]</a></td></tr>
+            <tr><td>Consultas legales y contractuales</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab6bfbdbbb69abcb6bfa2aaaba8f4b9b5">[email&#160;protected]</a></td></tr>
+            <tr><td>Tratamiento de datos personales</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="345055405b47745258514c4445461a575b">[email&#160;protected]</a></td></tr>
+            <tr><td>Soporte técnico</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="285b4758475a5c4d684e444d5058595a064b47">[email&#160;protected]</a></td></tr>
+            <tr><td>Comercial</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6e6260687f6e646c614d6b6168757d7c7f236e62">[email&#160;protected]</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -1403,8 +1403,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
       <div class="doc-footer">
         <div class="doc-footer-left">DOC-05 · Términos y Condiciones v1.0 · Marzo 2026</div>
         <div class="doc-footer-right">
-          <button class="nav-btn prev" onclick="showDoc(&#39;doc04&#39;)">← SLA</button>
-          <button class="nav-btn next" onclick="showDoc(&#39;cover&#39;)">⌂ Inicio</button>
+          <button class="nav-btn prev" onclick="showDoc('doc04')">← SLA</button>
+          <button class="nav-btn next" onclick="showDoc('cover')">⌂ Inicio</button>
         </div>
       </div>
     </div>
@@ -1486,5 +1486,5 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: v
   });
 })();
 </script>
-
-</body></html>
+</body>
+</html>
