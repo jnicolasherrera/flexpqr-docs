@@ -1,599 +1,598 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///C:/Users/juann/Downloads/Manual_FlexPQR_Interactivo.html -->
+<!-- saved from url=(0068)file:///C:/Users/juann/Downloads/FlexPQR_Portal_Documentacion_1.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual de Usuario — FlexPQR</title>
-<link href="./Manual de Usuario — FlexPQR_files/css2" rel="stylesheet">
+<title>FlexPQR — Portal de Documentación</title>
+<link href="./index_files/css2" rel="stylesheet">
 <style>
-  :root {
-    --blue-900: #0A1628;
-    --blue-800: #0D1F3C;
-    --blue-700: #112952;
-    --blue-600: #1A3A6B;
-    --blue-500: #1E4D8C;
-    --blue-400: #2563B0;
-    --blue-300: #3B82D4;
-    --blue-200: #93C5FD;
-    --blue-100: #DBEAFE;
-    --blue-50:  #EFF6FF;
-    --accent:   #0EA5E9;
-    --accent-2: #38BDF8;
-    --green:    #10B981;
-    --amber:    #F59E0B;
-    --red:      #EF4444;
-    --orange:   #F97316;
-    --gray-900: #111827;
-    --gray-700: #374151;
-    --gray-500: #6B7280;
-    --gray-300: #D1D5DB;
-    --gray-100: #F3F4F6;
-    --white:    #FFFFFF;
-    --sidebar-w: 280px;
-    --header-h: 64px;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--gray-100);
-    color: var(--gray-900);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── HEADER ── */
-  .header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    height: var(--header-h);
-    background: var(--blue-900);
-    display: flex; align-items: center;
-    padding: 0 24px 0 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  }
-
-  .header-logo {
-    width: var(--sidebar-w);
-    display: flex; align-items: center; gap: 12px;
-    padding: 0 24px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    height: 100%;
-    flex-shrink: 0;
-  }
-
-  .logo-icon {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, var(--accent), var(--blue-400));
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 700; color: white;
-    letter-spacing: -1px;
-    box-shadow: 0 0 16px rgba(14,165,233,0.4);
-  }
-
-  .logo-text { display: flex; flex-direction: column; }
-  .logo-name { font-size: 15px; font-weight: 700; color: white; letter-spacing: 0.3px; }
-  .logo-sub  { font-size: 10px; color: var(--blue-200); font-weight: 400; letter-spacing: 1.2px; text-transform: uppercase; }
-
-  .header-center { flex: 1; display: flex; align-items: center; gap: 16px; padding: 0 24px; }
-
-  .header-badge {
-    background: rgba(14,165,233,0.15);
-    border: 1px solid rgba(14,165,233,0.35);
-    color: var(--accent-2);
-    font-size: 11px; font-weight: 600;
-    padding: 4px 10px; border-radius: 20px;
-    letter-spacing: 0.8px; text-transform: uppercase;
-  }
-
-  .header-title { font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 300; }
-
-  .header-right { display: flex; align-items: center; gap: 12px; }
-
-  .version-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; color: rgba(255,255,255,0.35);
-    background: rgba(255,255,255,0.06);
-    padding: 4px 10px; border-radius: 4px;
-  }
-
-  /* ── SIDEBAR ── */
-  .sidebar {
-    position: fixed; top: var(--header-h); left: 0; bottom: 0;
-    width: var(--sidebar-w);
-    background: var(--blue-800);
-    overflow-y: auto;
-    z-index: 90;
-    border-right: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .sidebar::-webkit-scrollbar { width: 4px; }
-  .sidebar::-webkit-scrollbar-track { background: transparent; }
-  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
-
-  .sidebar-section { padding: 20px 0 8px; }
-
-  .sidebar-label {
-    font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    padding: 0 20px 8px;
-  }
-
-  .nav-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 9px 20px;
-    cursor: pointer;
-    color: rgba(255,255,255,0.55);
-    font-size: 13px; font-weight: 400;
-    transition: all 0.15s;
-    border-left: 2px solid transparent;
-    text-decoration: none;
-  }
-
-  .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
-
-  .nav-item.active {
-    background: rgba(14,165,233,0.12);
-    border-left-color: var(--accent);
-    color: white; font-weight: 500;
-  }
-
-  .nav-icon {
-    width: 18px; height: 18px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; flex-shrink: 0;
-  }
-
-  .nav-num {
-    margin-left: auto;
-    font-size: 10px; font-family: 'DM Mono', monospace;
-    color: rgba(255,255,255,0.2);
-  }
-
-  /* ── MAIN ── */
-  .main {
-    margin-left: var(--sidebar-w);
-    margin-top: var(--header-h);
-    min-height: calc(100vh - var(--header-h));
-    padding: 40px 48px;
-    max-width: 960px;
-  }
-
-  /* ── SECTIONS ── */
-  .section {
-    display: none;
-    animation: fadeUp 0.25s ease;
-  }
-
-  .section.active { display: block; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── HERO (cover section) ── */
-  .hero {
-    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 60%, var(--blue-500) 100%);
-    border-radius: 16px;
-    padding: 56px 48px;
-    margin-bottom: 32px;
-    position: relative; overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute; top: -60px; right: -60px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -40px; left: 40%;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
-  }
-
-  .hero-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--accent-2); margin-bottom: 16px;
-  }
-
-  .hero h1 {
-    font-size: 38px; font-weight: 700; color: white; line-height: 1.15;
-    margin-bottom: 12px;
-  }
-
-  .hero h1 span { color: var(--accent-2); }
-
-  .hero-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; max-width: 540px; margin-bottom: 28px; }
-
-  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  .pill {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.75);
-    font-size: 12px; font-weight: 500;
-    padding: 6px 14px; border-radius: 20px;
-    display: flex; align-items: center; gap: 6px;
-  }
-
-  /* ── CARDS ── */
-  .card {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid var(--gray-300);
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-
-  .card-header {
-    display: flex; align-items: center; gap: 12px;
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--gray-100);
-    background: var(--gray-100);
-  }
-
-  .card-header-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; flex-shrink: 0;
-  }
-
-  .card-header h3 { font-size: 15px; font-weight: 600; color: var(--blue-700); }
-  .card-header p  { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
-
-  .card-body { padding: 24px; }
-
-  /* ── CREDENTIALS TABLE ── */
-  .cred-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
-
-  .cred-table thead tr { background: var(--blue-900); }
-  .cred-table thead th {
-    color: white; padding: 11px 16px; text-align: left;
-    font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-  }
-
-  .cred-table tbody tr { border-bottom: 1px solid var(--gray-100); }
-  .cred-table tbody tr:last-child { border-bottom: none; }
-  .cred-table tbody td { padding: 13px 16px; color: var(--gray-700); }
-  .cred-table tbody td:first-child { font-weight: 600; color: var(--blue-600); width: 140px; }
-
-  .cred-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    background: var(--blue-50);
-    padding: 4px 10px; border-radius: 5px;
-    color: var(--blue-700);
-    display: inline-block;
-    border: 1px solid var(--blue-100);
-  }
-
-  /* ── INFO BOX ── */
-  .info-box {
-    display: flex; gap: 12px;
-    padding: 14px 18px;
-    border-radius: 10px;
-    font-size: 13px; line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  .info-box.blue { background: var(--blue-50); border: 1px solid var(--blue-100); color: var(--blue-700); }
-  .info-box.green { background: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; }
-  .info-box.amber { background: #FFFBEB; border: 1px solid #FDE68A; color: #92400E; }
-  .info-box.red   { background: #FEF2F2; border: 1px solid #FECACA; color: #991B1B; }
-  .info-box-icon  { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .info-box strong { font-weight: 600; }
-
-  /* ── FLOW DIAGRAM ── */
-  .flow-wrap {
-    background: white;
-    border: 1px solid var(--gray-300);
-    border-radius: 12px;
-    padding: 32px 24px;
-    margin-bottom: 20px;
-    overflow-x: auto;
-  }
-
-  .flow-title { font-size: 13px; font-weight: 600; color: var(--gray-500); text-align: center; margin-bottom: 24px; letter-spacing: 0.5px; }
-
-  .flow-steps {
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-    position: relative;
-  }
-
-  .flow-step {
-    display: flex; align-items: flex-start; gap: 20px;
-    width: 100%; max-width: 620px;
-    padding: 16px 0;
-    position: relative;
-  }
-
-  .flow-step::before {
-    content: '';
-    position: absolute; left: 23px; top: 56px; bottom: -20px;
-    width: 2px; background: var(--gray-300);
-    z-index: 0;
-  }
-
-  .flow-step:last-child::before { display: none; }
-
-  .flow-num {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--blue-900);
-    color: white; font-weight: 700; font-size: 16px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; position: relative; z-index: 1;
-    box-shadow: 0 2px 8px rgba(10,22,40,0.3);
-  }
-
-  .flow-step.highlight .flow-num {
-    background: linear-gradient(135deg, var(--accent), var(--blue-400));
-    box-shadow: 0 2px 12px rgba(14,165,233,0.5);
-  }
-
-  .flow-content { flex: 1; padding-top: 10px; }
-  .flow-content h4 { font-size: 14px; font-weight: 600; color: var(--blue-800); margin-bottom: 4px; }
-  .flow-content p  { font-size: 13px; color: var(--gray-500); line-height: 1.55; }
-
-  .flow-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-
-  /* ── BADGES ── */
-  .badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
-    text-transform: uppercase; letter-spacing: 0.6px;
-  }
-
-  .badge.tutela  { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
-  .badge.queja   { background: #FFF7ED; color: #9A3412; border: 1px solid #FED7AA; }
-  .badge.reclamo { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
-  .badge.peticion{ background: var(--blue-50); color: var(--blue-700); border: 1px solid var(--blue-200); }
-  .badge.solicitud{ background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
-  .badge.ai      { background: #F5F3FF; color: #5B21B6; border: 1px solid #DDD6FE; }
-  .badge.gray    { background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-300); }
-
-  .badge::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: currentColor; opacity: 0.8;
-  }
-
-  /* ── DASHBOARD GRID ── */
-  .dash-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 12px; margin-bottom: 20px;
-  }
-
-  .dash-card {
-    background: white; border: 1px solid var(--gray-300);
-    border-radius: 10px; padding: 16px;
-    transition: box-shadow 0.2s, border-color 0.2s;
-    cursor: default;
-  }
-
-  .dash-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--blue-200); }
-
-  .dash-card-label { font-size: 11px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .dash-card-value { font-size: 28px; font-weight: 700; color: var(--blue-800); line-height: 1; }
-  .dash-card-sub   { font-size: 11px; color: var(--gray-500); margin-top: 4px; }
-  .dash-card-icon  { font-size: 22px; float: right; margin-top: -4px; opacity: 0.2; }
-
-  /* ── STEPS LIST ── */
-  .steps-list { list-style: none; }
-
-  .steps-list li {
-    display: flex; gap: 14px; align-items: flex-start;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--gray-100);
-  }
-
-  .steps-list li:last-child { border-bottom: none; }
-
-  .step-num {
-    width: 26px; height: 26px; border-radius: 6px;
-    background: var(--blue-900);
-    color: white; font-size: 12px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-
-  .step-text { flex: 1; }
-  .step-text strong { font-size: 13.5px; color: var(--gray-900); display: block; margin-bottom: 2px; }
-  .step-text span   { font-size: 12.5px; color: var(--gray-500); line-height: 1.5; }
-
-  /* ── SECTION GRID (dashboard sections) ── */
-  .section-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 14px; margin-bottom: 20px;
-  }
-
-  .section-item {
-    background: white; border: 1px solid var(--gray-300);
-    border-radius: 10px; padding: 18px;
-    border-left: 3px solid var(--blue-400);
-  }
-
-  .section-item h4 {
-    font-size: 13px; font-weight: 700; color: var(--blue-700);
-    margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
-  }
-
-  .section-item ul { margin-left: 14px; }
-  .section-item li { font-size: 12.5px; color: var(--gray-600); margin-bottom: 3px; line-height: 1.5; }
-
-  /* ── TENANT BOX ── */
-  .tenant-visual {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px; margin: 20px 0;
-  }
-
-  .tenant-box {
-    border-radius: 10px; padding: 16px;
-    text-align: center; position: relative; overflow: hidden;
-  }
-
-  .tenant-box.demo {
-    background: var(--blue-50);
-    border: 2px solid var(--blue-300);
-  }
-
-  .tenant-box.other {
-    background: var(--gray-100);
-    border: 2px dashed var(--gray-300);
-    opacity: 0.45;
-  }
-
-  .tenant-box .tb-icon { font-size: 28px; margin-bottom: 8px; }
-  .tenant-box .tb-name { font-size: 12px; font-weight: 700; color: var(--blue-700); margin-bottom: 3px; }
-  .tenant-box .tb-sub  { font-size: 11px; color: var(--gray-500); }
-
-  .lock-overlay {
-    position: absolute; top: 6px; right: 8px;
-    font-size: 14px; opacity: 0.35;
-  }
-
-  /* ── CHECKLIST ── */
-  .checklist { list-style: none; }
-
-  .checklist li {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 9px 0;
-    font-size: 13px; color: var(--gray-700);
-    border-bottom: 1px solid var(--gray-100);
-    line-height: 1.5;
-  }
-
-  .checklist li:last-child { border-bottom: none; }
-
-  .check-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-  /* ── DEADLINE TABLE ── */
-  .deadline-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 16px;
-    border-radius: 8px; margin-bottom: 8px;
-    border: 1px solid;
-  }
-
-  .deadline-row.tutela  { background: #FEF2F2; border-color: #FECACA; }
-  .deadline-row.sfc     { background: #FFF7ED; border-color: #FED7AA; }
-  .deadline-row.normal  { background: var(--blue-50); border-color: var(--blue-100); }
-
-  .deadline-icon { font-size: 22px; flex-shrink: 0; }
-  .deadline-info { flex: 1; }
-  .deadline-info strong { font-size: 13px; font-weight: 700; display: block; }
-  .deadline-info span   { font-size: 12px; color: var(--gray-500); }
-  .deadline-time {
-    font-family: 'DM Mono', monospace;
-    font-size: 20px; font-weight: 700;
-    flex-shrink: 0;
-  }
-  .tutela  .deadline-time { color: var(--red); }
-  .sfc     .deadline-time { color: var(--orange); }
-  .normal  .deadline-time { color: var(--blue-500); }
-
-  /* ── PRODUCTION GRID ── */
-  .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .prod-item {
-    display: flex; gap: 14px; align-items: flex-start;
-    background: white; border: 1px solid var(--gray-300);
-    border-radius: 10px; padding: 16px;
-  }
-
-  .prod-item-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--blue-50); border: 1px solid var(--blue-100);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
-  }
-
-  .prod-item h4 { font-size: 13px; font-weight: 600; color: var(--blue-800); margin-bottom: 3px; }
-  .prod-item p  { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
-
-  .roadmap-tag {
-    display: inline-block; margin-top: 6px;
-    font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px;
-    background: #F5F3FF; color: #5B21B6; border: 1px solid #DDD6FE;
-    letter-spacing: 0.5px; text-transform: uppercase;
-  }
-
-  /* ── PAGE TITLE ── */
-  .page-title {
-    margin-bottom: 28px;
-  }
-
-  .page-title .eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 6px;
-  }
-
-  .page-title h2 { font-size: 26px; font-weight: 700; color: var(--blue-900); margin-bottom: 6px; }
-  .page-title p  { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
-
-  .divider {
-    height: 1px; background: var(--gray-300);
-    margin: 24px 0;
-  }
-
-  /* ── RADICADO SAMPLE ── */
-  .radicado-sample {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--blue-900); color: var(--accent-2);
-    font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 500;
-    padding: 10px 20px; border-radius: 8px;
-    letter-spacing: 1px; margin: 16px 0;
-    border: 1px solid rgba(14,165,233,0.25);
-    box-shadow: 0 0 20px rgba(14,165,233,0.1);
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    margin-top: 48px; padding: 24px 0;
-    border-top: 1px solid var(--gray-300);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .footer-logo { font-size: 13px; font-weight: 700; color: var(--blue-800); }
-  .footer-text  { font-size: 12px; color: var(--gray-500); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .sidebar { transform: translateX(-100%); }
-    .main { margin-left: 0; padding: 24px 16px; }
-    .header-logo { width: auto; border: none; }
-    .header-title { display: none; }
-    .dash-grid { grid-template-columns: 1fr 1fr; }
-    .section-grid { grid-template-columns: 1fr; }
-    .prod-grid { grid-template-columns: 1fr; }
-    .tenant-visual { grid-template-columns: 1fr; }
-  }
-
-  /* ── PROGRESS BAR FOR DEMO FLOW ── */
-  .progress-bar-outer {
-    background: var(--gray-100); border-radius: 6px; height: 8px;
-    overflow: hidden; margin-top: 6px;
-  }
-  .progress-bar-inner {
-    height: 100%; border-radius: 6px;
-    background: linear-gradient(90deg, var(--accent), var(--blue-400));
-    transition: width 0.6s ease;
-  }
+:root {
+  --blue-950: #060E1E;
+  --blue-900: #0A1628;
+  --blue-800: #0D1F3C;
+  --blue-700: #112952;
+  --blue-600: #1A3A6B;
+  --blue-500: #1E4D8C;
+  --blue-400: #2563B0;
+  --blue-300: #3B82D4;
+  --blue-200: #93C5FD;
+  --blue-100: #DBEAFE;
+  --blue-50:  #EFF6FF;
+  --accent:   #0EA5E9;
+  --accent-2: #38BDF8;
+  --green:    #10B981;
+  --green-50: #ECFDF5;
+  --green-100:#A7F3D0;
+  --amber:    #F59E0B;
+  --amber-50: #FFFBEB;
+  --amber-100:#FDE68A;
+  --red:      #EF4444;
+  --red-50:   #FEF2F2;
+  --red-100:  #FECACA;
+  --orange:   #F97316;
+  --purple:   #8B5CF6;
+  --purple-50:#F5F3FF;
+  --purple-100:#DDD6FE;
+  --gray-900: #111827;
+  --gray-800: #1F2937;
+  --gray-700: #374151;
+  --gray-600: #4B5563;
+  --gray-500: #6B7280;
+  --gray-400: #9CA3AF;
+  --gray-300: #D1D5DB;
+  --gray-200: #E5E7EB;
+  --gray-100: #F3F4F6;
+  --gray-50:  #F9FAFB;
+  --white:    #FFFFFF;
+  --sidebar-w: 288px;
+  --header-h: 60px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--gray-100); color: var(--gray-900); min-height: 100vh; }
+
+/* ─── HEADER ─── */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: var(--header-h);
+  background: var(--blue-950);
+  display: flex; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+
+.header-logo {
+  width: var(--sidebar-w); flex-shrink: 0;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 24px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  height: 100%;
+}
+
+.logo-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--blue-400));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800; color: white; letter-spacing: -1px;
+  box-shadow: 0 0 14px rgba(14,165,233,0.35);
+  flex-shrink: 0;
+}
+
+.logo-text { display: flex; flex-direction: column; }
+.logo-name { font-size: 14px; font-weight: 700; color: white; }
+.logo-sub  { font-size: 10px; color: var(--blue-200); font-weight: 400; letter-spacing: 1.4px; text-transform: uppercase; }
+
+.header-body { flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; }
+.header-doc-title { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; }
+.header-doc-title span { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+.header-tags { display: flex; gap: 8px; }
+.htag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.htag.active { background: rgba(14,165,233,0.15); color: var(--accent-2); border-color: rgba(14,165,233,0.3); }
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+  position: fixed; top: var(--header-h); left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--blue-900);
+  overflow-y: auto; z-index: 100;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+.sidebar-portal-label {
+  padding: 18px 20px 6px;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* Doc group */
+.doc-group { margin-bottom: 4px; }
+
+.doc-group-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-left: 2px solid transparent;
+  user-select: none;
+}
+
+.doc-group-header:hover { background: rgba(255,255,255,0.04); }
+.doc-group-header.active { background: rgba(14,165,233,0.1); border-left-color: var(--accent); }
+
+.doc-num {
+  width: 22px; height: 22px; border-radius: 5px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.4);
+  font-size: 10px; font-weight: 700; font-family: 'DM Mono', monospace;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.doc-group-header.active .doc-num {
+  background: rgba(14,165,233,0.2);
+  color: var(--accent-2);
+}
+
+.doc-group-info { flex: 1; min-width: 0; }
+.doc-group-title { font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,0.55); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.doc-group-header.active .doc-group-title { color: white; font-weight: 600; }
+.doc-group-sub { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 1px; }
+
+.doc-chevron { font-size: 10px; color: rgba(255,255,255,0.2); transition: transform 0.2s; flex-shrink: 0; }
+.doc-group-header.active .doc-chevron { transform: rotate(90deg); color: var(--accent); }
+
+/* Sub-nav */
+.sub-nav { display: none; background: rgba(0,0,0,0.15); }
+.sub-nav.open { display: block; }
+
+.sub-nav-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 20px 7px 52px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.35);
+  font-size: 11.5px;
+  transition: color 0.15s, background 0.15s;
+  border-left: 2px solid transparent;
+}
+
+.sub-nav-item:hover { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.65); }
+.sub-nav-item.active { color: var(--accent-2); border-left-color: var(--accent); background: rgba(14,165,233,0.05); }
+.sub-nav-item::before { content: '—'; font-size: 9px; opacity: 0.4; }
+
+/* ─── MAIN ─── */
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: var(--header-h);
+  min-height: calc(100vh - var(--header-h));
+}
+
+.doc-panel { display: none; }
+.doc-panel.active { display: block; }
+
+.doc-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 48px 60px;
+}
+
+/* ─── COVER ─── */
+.cover {
+  min-height: calc(100vh - var(--header-h));
+  background: linear-gradient(160deg, var(--blue-950) 0%, var(--blue-800) 50%, #0f2a50 100%);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 48px 60px calc(var(--sidebar-w) + 48px);
+  position: relative; overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute; top: -100px; right: 0;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute; bottom: -80px; left: 40%;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,176,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cover-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); display: inline-block; }
+
+.cover h1 {
+  font-size: 48px; font-weight: 700; color: white; line-height: 1.1;
+  margin-bottom: 16px; max-width: 600px;
+}
+.cover h1 em { font-style: normal; color: var(--accent-2); }
+
+.cover-desc {
+  font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7;
+  max-width: 520px; margin-bottom: 40px; font-weight: 300;
+}
+
+.cover-docs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; max-width: 680px;
+}
+
+.cover-doc-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cover-doc-card:hover {
+  background: rgba(14,165,233,0.1);
+  border-color: rgba(14,165,233,0.3);
+  transform: translateY(-2px);
+}
+
+.cdc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--accent); font-weight: 500;
+  margin-bottom: 6px; letter-spacing: 0.5px;
+}
+.cdc-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 32px 48px 24px;
+  position: sticky; top: var(--header-h); z-index: 50;
+}
+
+.ph-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.ph-eyebrow .doc-badge {
+  background: var(--blue-50); border: 1px solid var(--blue-100);
+  color: var(--blue-600); padding: 2px 8px; border-radius: 4px;
+  font-family: 'DM Mono', monospace; font-size: 9px;
+}
+
+.page-header h1 { font-size: 28px; font-weight: 700; color: var(--blue-900); margin-bottom: 6px; line-height: 1.2; }
+.page-header p  { font-size: 13px; color: var(--gray-500); line-height: 1.6; max-width: 620px; }
+
+.ph-meta { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+.ph-tag {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--gray-500);
+}
+.ph-tag strong { color: var(--gray-700); font-weight: 600; }
+
+/* ─── CONTENT ELEMENTS ─── */
+.section-title {
+  font-size: 18px; font-weight: 700; color: var(--blue-900);
+  margin: 36px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gray-100);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.section-title .s-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--accent);
+  background: var(--blue-50); border: 1px solid var(--blue-100);
+  padding: 2px 8px; border-radius: 4px; font-weight: 500;
+}
+
+.sub-title {
+  font-size: 14px; font-weight: 700; color: var(--blue-700);
+  margin: 24px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.sub-title::before { content: ''; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; display: inline-block; }
+
+.prose {
+  font-size: 13.5px; color: var(--gray-700); line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* Cards */
+.card {
+  background: white; border: 1px solid var(--gray-200);
+  border-radius: 12px; overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.card-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.card-head-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+
+.card-head h3 { font-size: 14px; font-weight: 700; color: var(--blue-800); }
+.card-head p  { font-size: 11.5px; color: var(--gray-500); margin-top: 1px; }
+.card-body { padding: 20px; }
+
+/* Tables */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table thead tr { background: var(--blue-900); }
+.data-table thead th {
+  color: white; padding: 10px 14px; text-align: left;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+}
+.data-table thead th:first-child { border-radius: 0; }
+.data-table tbody tr { border-bottom: 1px solid var(--gray-100); transition: background 0.1s; }
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--gray-50); }
+.data-table tbody td { padding: 11px 14px; color: var(--gray-700); vertical-align: top; line-height: 1.5; }
+.data-table tbody td:first-child { font-weight: 600; color: var(--blue-700); white-space: nowrap; }
+.data-table tbody td strong { font-weight: 700; color: var(--gray-900); }
+
+/* Code */
+.code-block {
+  background: var(--blue-950);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 16px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; color: var(--accent-2);
+  overflow-x: auto; margin: 12px 0;
+  line-height: 1.7;
+}
+
+.code-block .comment { color: rgba(255,255,255,0.25); }
+.code-block .kw { color: #c792ea; }
+.code-block .str { color: #c3e88d; }
+
+/* Info boxes */
+.info-box {
+  display: flex; gap: 12px; padding: 14px 18px;
+  border-radius: 10px; font-size: 13px; line-height: 1.65;
+  margin-bottom: 16px;
+}
+.info-box.blue   { background: var(--blue-50);  border: 1px solid var(--blue-100);  color: var(--blue-700); }
+.info-box.green  { background: var(--green-50); border: 1px solid var(--green-100); color: #065F46; }
+.info-box.amber  { background: var(--amber-50); border: 1px solid var(--amber-100); color: #92400E; }
+.info-box.red    { background: var(--red-50);   border: 1px solid var(--red-100);   color: #991B1B; }
+.info-box.purple { background: var(--purple-50);border: 1px solid var(--purple-100);color: #4C1D95; }
+.info-box-icon   { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.info-box strong { font-weight: 700; }
+
+/* Badges */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;
+}
+.badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.7; }
+.badge.green  { background: var(--green-50);  color: #065F46;  border: 1px solid var(--green-100); }
+.badge.red    { background: var(--red-50);    color: #991B1B;  border: 1px solid var(--red-100); }
+.badge.amber  { background: var(--amber-50);  color: #92400E;  border: 1px solid var(--amber-100); }
+.badge.blue   { background: var(--blue-50);   color: var(--blue-600); border: 1px solid var(--blue-100); }
+.badge.purple { background: var(--purple-50); color: #5B21B6;  border: 1px solid var(--purple-100); }
+.badge.gray   { background: var(--gray-100);  color: var(--gray-600); border: 1px solid var(--gray-300); }
+
+/* Metric cards */
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+.metric-card {
+  background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px;
+  transition: box-shadow 0.2s;
+}
+.metric-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.mc-label { font-size: 10.5px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.mc-value { font-size: 26px; font-weight: 700; color: var(--blue-800); line-height: 1; }
+.mc-sub   { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+.mc-icon  { font-size: 20px; float: right; opacity: 0.15; margin-top: -2px; }
+
+/* Two-col grid */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.feat-item {
+  background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 18px;
+  border-left: 3px solid var(--blue-300);
+}
+.feat-item.green-border { border-left-color: var(--green); }
+.feat-item.amber-border { border-left-color: var(--amber); }
+.feat-item.red-border   { border-left-color: var(--red); }
+.feat-item.purple-border{ border-left-color: var(--purple); }
+
+.feat-item h4 { font-size: 13px; font-weight: 700; color: var(--blue-700); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.feat-item ul { margin-left: 16px; }
+.feat-item li { font-size: 12.5px; color: var(--gray-600); margin-bottom: 4px; line-height: 1.5; }
+
+/* Checklist */
+.checklist { list-style: none; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+  font-size: 13px; color: var(--gray-700); line-height: 1.55;
+}
+.checklist li:last-child { border-bottom: none; }
+.check-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* SLA severity rows */
+.sev-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-radius: 10px; margin-bottom: 10px;
+  border: 1px solid;
+}
+.sev-row.s1 { background: #FEF2F2; border-color: #FECACA; }
+.sev-row.s2 { background: #FFF7ED; border-color: #FED7AA; }
+.sev-row.s3 { background: var(--amber-50); border-color: var(--amber-100); }
+.sev-row.s4 { background: var(--blue-50); border-color: var(--blue-100); }
+
+.sev-badge {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.s1 .sev-badge { background: var(--red); color: white; }
+.s2 .sev-badge { background: var(--orange); color: white; }
+.s3 .sev-badge { background: var(--amber); color: white; }
+.s4 .sev-badge { background: var(--blue-400); color: white; }
+
+.sev-info { flex: 1; }
+.sev-info strong { font-size: 13px; font-weight: 700; display: block; margin-bottom: 2px; }
+.sev-info span   { font-size: 12px; color: var(--gray-500); }
+.sev-times { text-align: right; flex-shrink: 0; }
+.sev-times .t1 { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 700; color: var(--gray-800); }
+.sev-times .t2 { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+/* Plan cards */
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.plan-card {
+  background: white; border: 2px solid var(--gray-200);
+  border-radius: 14px; padding: 24px; position: relative;
+  transition: all 0.2s;
+}
+.plan-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.plan-card.featured { border-color: var(--blue-400); }
+.plan-card.featured::before {
+  content: 'Más popular';
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--blue-400); color: white;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+}
+
+.plan-name { font-size: 13px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.plan-price { font-size: 36px; font-weight: 800; color: var(--blue-900); line-height: 1; margin-bottom: 4px; }
+.plan-price span { font-size: 14px; font-weight: 400; color: var(--gray-400); }
+.plan-sub { font-size: 12px; color: var(--gray-400); margin-bottom: 20px; }
+.plan-divider { height: 1px; background: var(--gray-100); margin-bottom: 16px; }
+.plan-feature { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--gray-600); margin-bottom: 8px; }
+.plan-feature::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+/* Architecture diagram */
+.arch-diagram {
+  background: var(--blue-950); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 28px; margin: 20px 0;
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  color: rgba(255,255,255,0.5); line-height: 1.8; overflow-x: auto;
+}
+.arch-diagram .node { color: var(--accent-2); font-weight: 500; }
+.arch-diagram .arrow { color: rgba(255,255,255,0.2); }
+.arch-diagram .component { color: #c3e88d; }
+.arch-diagram .note { color: rgba(255,255,255,0.25); font-size: 11px; }
+
+/* Divider */
+.divider { height: 1px; background: var(--gray-200); margin: 28px 0; }
+
+/* Footer */
+.doc-footer {
+  margin-top: 56px; padding: 24px 0;
+  border-top: 1px solid var(--gray-200);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.doc-footer-left { font-size: 12px; color: var(--gray-400); }
+.doc-footer-right { display: flex; gap: 12px; }
+
+.nav-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; border: none;
+  transition: all 0.15s;
+}
+.nav-btn.prev { background: var(--gray-100); color: var(--gray-600); }
+.nav-btn.next { background: var(--blue-900); color: white; }
+.nav-btn:hover { opacity: 0.85; transform: translateX(2px); }
+.nav-btn.prev:hover { transform: translateX(-2px); }
+
+/* Stack table wrapper */
+.table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--gray-200); margin-bottom: 20px; }
+.table-wrap .data-table { margin-bottom: 0; }
+
+/* Compliance row */
+.compliance-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--gray-100);
+}
+.compliance-item:last-child { border-bottom: none; }
+.comp-norm { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--blue-500); background: var(--blue-50); border: 1px solid var(--blue-100); padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+.comp-desc { font-size: 13px; color: var(--gray-700); line-height: 1.5; }
+.comp-desc strong { color: var(--gray-900); font-weight: 600; }
+
+/* T&C article */
+.tc-article {
+  background: white; border: 1px solid var(--gray-200);
+  border-radius: 10px; margin-bottom: 12px; overflow: hidden;
+}
+.tc-article-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.tc-article-head:hover { background: var(--gray-50); }
+.tc-art-num {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: var(--accent); background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+}
+.tc-article-head h4 { font-size: 13.5px; font-weight: 600; color: var(--blue-800); flex: 1; }
+.tc-chevron { font-size: 11px; color: var(--gray-400); transition: transform 0.2s; flex-shrink: 0; }
+.tc-article.open .tc-chevron { transform: rotate(180deg); }
+.tc-article-body { display: none; padding: 0 18px 18px; }
+.tc-article.open .tc-article-body { display: block; }
+.tc-article-body p { font-size: 13px; color: var(--gray-700); line-height: 1.7; margin-bottom: 10px; }
+.tc-article-body ul { margin-left: 18px; margin-bottom: 10px; }
+.tc-article-body li { font-size: 13px; color: var(--gray-700); line-height: 1.6; margin-bottom: 4px; }
+.tc-article-body strong { font-weight: 700; color: var(--gray-900); }
+
+/* Progress indicator */
+.reading-progress {
+  position: fixed; top: var(--header-h); left: var(--sidebar-w); right: 0;
+  height: 2px; background: var(--gray-200); z-index: 99;
+}
+.reading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--blue-300));
+  width: 0%; transition: width 0.1s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .main { margin-left: 0; }
+  .cover { padding: 60px 24px; }
+  .doc-content { padding: 24px 20px; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+  .plan-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .cover-docs { grid-template-columns: 1fr 1fr; }
+  .page-header { padding: 20px 24px; }
+}
 </style>
 </head>
 <body>
+
+<!-- READING PROGRESS -->
+<div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
 
 <!-- HEADER -->
 <header class="header">
@@ -601,711 +600,855 @@
     <div class="logo-icon">F</div>
     <div class="logo-text">
       <span class="logo-name">FlexPQR</span>
-      <span class="logo-sub">Manual de Usuario</span>
+      <span class="logo-sub">Documentación</span>
     </div>
   </div>
-  <div class="header-center">
-    <span class="header-badge">Demo</span>
-    <span class="header-title">Gestión Automatizada de PQRS y Tutelas</span>
-  </div>
-  <div class="header-right">
-    <span class="version-tag">v2025</span>
+  <div class="header-body">
+    <div class="header-doc-title" id="headerDocTitle">Portal de Documentación Técnica y Comercial</div>
+    <div class="header-tags">
+      <span class="htag active">v2.0</span>
+      <span class="htag">Marzo 2026</span>
+      <span class="htag">FlexFintech S.A.S.</span>
+    </div>
   </div>
 </header>
 
 <!-- SIDEBAR -->
 <nav class="sidebar">
-  <div class="sidebar-section">
-    <div class="sidebar-label">Inicio</div>
-    <a class="nav-item active" onclick="showSection(&#39;intro&#39;)">
-      <span class="nav-icon">🏠</span> Presentación
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;acceso&#39;)">
-      <span class="nav-icon">🔑</span> Acceso al Sistema
-      <span class="nav-num">01</span>
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;que-hace&#39;)">
-      <span class="nav-icon">💡</span> ¿Qué hace FlexPQR?
-      <span class="nav-num">02</span>
-    </a>
+  <div class="sidebar-portal-label">Documentos</div>
+
+  <div class="doc-group">
+    <div class="doc-group-header" onclick="showDoc(&#39;cover&#39;)">
+      <div class="doc-num">⌂</div>
+      <div class="doc-group-info">
+        <div class="doc-group-title">Inicio</div>
+        <div class="doc-group-sub">Portal de documentación</div>
+      </div>
+    </div>
   </div>
-  <div class="sidebar-section">
-    <div class="sidebar-label">Operación</div>
-    <a class="nav-item" onclick="showSection(&#39;flujo&#39;)">
-      <span class="nav-icon">🔄</span> Flujo de la Demo
-      <span class="nav-num">03</span>
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;dashboard&#39;)">
-      <span class="nav-icon">📊</span> Dashboard
-      <span class="nav-num">04</span>
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;plazos&#39;)">
-      <span class="nav-icon">⏱️</span> Plazos Legales
-    </a>
+
+  <div class="doc-group" id="grp-01">
+    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-01&#39;); showDoc(&#39;doc01&#39;)">
+      <div class="doc-num">01</div>
+      <div class="doc-group-info">
+        <div class="doc-group-title">Arquitectura Técnica</div>
+        <div class="doc-group-sub">Stack · Seguridad · Flujo</div>
+      </div>
+      <span class="doc-chevron">▶</span>
+    </div>
+    <div class="sub-nav" id="sub-grp-01">
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-vision&#39;)">Visión General</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-stack&#39;)">Stack Tecnológico</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-seguridad&#39;)">Seguridad Multi-Tenant</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-flujo&#39;)">Flujo de Procesamiento</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a01-compliance&#39;)">Cumplimiento Legal</div>
+    </div>
   </div>
-  <div class="sidebar-section">
-    <div class="sidebar-label">Técnico</div>
-    <a class="nav-item" onclick="showSection(&#39;tenant&#39;)">
-      <span class="nav-icon">🔒</span> Multi-Tenant
-      <span class="nav-num">05</span>
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;reset&#39;)">
-      <span class="nav-icon">♻️</span> Reset Automático
-      <span class="nav-num">06</span>
-    </a>
+
+  <div class="doc-group" id="grp-03">
+    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-03&#39;); showDoc(&#39;doc03&#39;)">
+      <div class="doc-num">03</div>
+      <div class="doc-group-info">
+        <div class="doc-group-title">Propuesta Comercial</div>
+        <div class="doc-group-sub">Módulos · Precios · Cronograma</div>
+      </div>
+      <span class="doc-chevron">▶</span>
+    </div>
+    <div class="sub-nav" id="sub-grp-03">
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-alcance&#39;)">Alcance y Módulos</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-planes&#39;)">Planes y Precios</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-cronograma&#39;)">Cronograma</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a03-pago&#39;)">Forma de Pago</div>
+    </div>
   </div>
-  <div class="sidebar-section">
-    <div class="sidebar-label">Presentación &amp; Onboarding</div>
-    <a class="nav-item" onclick="showSection(&#39;presentar&#39;)">
-      <span class="nav-icon">🎤</span> Guía para Presentar
-      <span class="nav-num">07</span>
-    </a>
-    <a class="nav-item" onclick="showSection(&#39;produccion&#39;)">
-      <span class="nav-icon">🚀</span> Producción / Onboarding
-      <span class="nav-num">08</span>
-    </a>
+
+  <div class="doc-group" id="grp-04">
+    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-04&#39;); showDoc(&#39;doc04&#39;)">
+      <div class="doc-num">04</div>
+      <div class="doc-group-info">
+        <div class="doc-group-title">SLA</div>
+        <div class="doc-group-sub">Uptime · Soporte · Backups</div>
+      </div>
+      <span class="doc-chevron">▶</span>
+    </div>
+    <div class="sub-nav" id="sub-grp-04">
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-uptime&#39;)">Uptime Garantizado</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-performance&#39;)">Performance del Sistema</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-soporte&#39;)">Soporte Técnico</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a04-backups&#39;)">Backups y Recuperación</div>
+    </div>
+  </div>
+
+  <div class="doc-group" id="grp-05">
+    <div class="doc-group-header" onclick="toggleGroup(&#39;grp-05&#39;); showDoc(&#39;doc05&#39;)">
+      <div class="doc-num">05</div>
+      <div class="doc-group-info">
+        <div class="doc-group-title">Términos y Condiciones</div>
+        <div class="doc-group-sub">Legal · Privacidad · Uso</div>
+      </div>
+      <span class="doc-chevron">▶</span>
+    </div>
+    <div class="sub-nav" id="sub-grp-05">
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-uso&#39;)">Uso Aceptable</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-datos&#39;)">Tratamiento de Datos</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-pi&#39;)">Propiedad Intelectual</div>
+      <div class="sub-nav-item" onclick="scrollToAnchor(&#39;a05-terminacion&#39;)">Vigencia y Terminación</div>
+    </div>
   </div>
 </nav>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main class="main">
 
-  <!-- ── SECCIÓN INTRO ── -->
-  <section class="section active" id="intro">
-    <div class="hero">
-      <div class="hero-eyebrow">Manual de Usuario · Entorno Demo</div>
-      <h1>Automatización inteligente<br>de <span>PQRS y Tutelas</span></h1>
-      <p class="hero-desc">FlexPQR es la plataforma que transforma la gestión de peticiones, quejas, reclamos y tutelas para entidades financieras y jurídicas colombianas — usando inteligencia artificial para clasificar, radicar y responder casos en segundos.</p>
-      <div class="hero-pills">
-        <div class="pill">🤖 Clasificación IA</div>
-        <div class="pill">⚡ &lt; 60 segundos</div>
-        <div class="pill">🏛️ Plazos SFC</div>
-        <div class="pill">🔒 Multi-Tenant RLS</div>
-        <div class="pill">📧 Email automático</div>
-      </div>
-    </div>
-
-    <div class="dash-grid">
-      <div class="dash-card">
-        <div class="dash-card-icon">⚡</div>
-        <div class="dash-card-label">Clasificación</div>
-        <div class="dash-card-value">&lt;60s</div>
-        <div class="dash-card-sub">Por caso ingresado</div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-card-icon">🏛️</div>
-        <div class="dash-card-label">Tipos de caso</div>
-        <div class="dash-card-value">5</div>
-        <div class="dash-card-sub">Tutela, Queja, Reclamo, Petición, Solicitud</div>
-      </div>
-      <div class="dash-card">
-        <div class="dash-card-icon">📋</div>
-        <div class="dash-card-label">Entorno</div>
-        <div class="dash-card-value">Demo</div>
-        <div class="dash-card-sub">Reset cada 30 min</div>
-      </div>
-    </div>
-
-    <div class="info-box blue">
-      <div class="info-box-icon">📖</div>
-      <div>
-        <strong>¿Cómo usar este manual?</strong><br>
-        Usá el menú lateral para navegar por las secciones. Si vas a hacer una presentación comercial, te recomendamos ir directamente a <strong>Guía para Presentar</strong> (sección 07).
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECCIÓN ACCESO ── -->
-  <section class="section" id="acceso">
-    <div class="page-title">
-      <div class="eyebrow">01 — Acceso</div>
-      <h2>Credenciales de acceso</h2>
-      <p>Ingresá al entorno de demostración con las siguientes credenciales. Siempre utilizá una ventana de incógnito para evitar conflictos con extensiones del navegador.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#EFF6FF">🔑</div>
-        <div>
-          <h3>Credenciales del Entorno Demo</h3>
-          <p>Acceso de rol Administrador · Solo lectura en configuraciones sensibles</p>
+  <!-- ══════════ COVER ══════════ -->
+  <div class="doc-panel active" id="panel-cover">
+    <div class="cover">
+      <div class="cover-eyebrow">FlexFintech Colombia S.A.S.</div>
+      <h1>Portal de<br><em>Documentación</em><br>FlexPQR</h1>
+      <p class="cover-desc">Documentación técnica y comercial completa de la plataforma de gestión inteligente de PQRS y Tutelas. Versión 2.0 — Marzo 2026.</p>
+      <div class="cover-docs">
+        <div class="cover-doc-card" onclick="showDoc(&#39;doc01&#39;)">
+          <div class="cdc-num">DOC-01</div>
+          <div class="cdc-title">Arquitectura Técnica</div>
+        </div>
+          <div class="cdc-title">Análisis de Costos</div>
+        </div>
+        <div class="cover-doc-card" onclick="showDoc(&#39;doc03&#39;)">
+          <div class="cdc-num">DOC-03</div>
+          <div class="cdc-title">Propuesta Comercial</div>
+        </div>
+        <div class="cover-doc-card" onclick="showDoc(&#39;doc04&#39;)">
+          <div class="cdc-num">DOC-04</div>
+          <div class="cdc-title">SLA</div>
+        </div>
+        <div class="cover-doc-card" onclick="showDoc(&#39;doc05&#39;)">
+          <div class="cdc-num">DOC-05</div>
+          <div class="cdc-title">Términos y Condiciones</div>
         </div>
       </div>
-      <div class="card-body" style="padding:0">
-        <table class="cred-table">
-          <thead>
-            <tr>
-              <th>Campo</th>
-              <th>Valor</th>
-            </tr>
-          </thead>
+    </div>
+  
+
+  <!-- ══════════ DOC 01 — ARQUITECTURA ══════════ -->
+  <div class="doc-panel" id="panel-doc01">
+    <div class="page-header">
+      <div class="ph-eyebrow"><span class="doc-badge">DOC-01</span> Arquitectura Técnica</div>
+      <h1>Stack, Seguridad y Flujo de Procesamiento</h1>
+      <p>Documentación técnica completa de la plataforma FlexPQR v2: componentes, integraciones, modelo de datos y cumplimiento legal colombiano.</p>
+      <div class="ph-meta">
+        <div class="ph-tag">📅 <strong>Marzo 2026</strong></div>
+        <div class="ph-tag">🏷️ Versión <strong>2.0</strong></div>
+        <div class="ph-tag">🔒 <strong>Técnica / Pre-venta</strong></div>
+      </div>
+    </div>
+
+    <div class="doc-content">
+
+      <div id="a01-vision"></div>
+      <div class="section-title"><span class="s-num">01</span> Visión General</div>
+      <p class="prose">FlexPQR es una plataforma SaaS multi-tenant para la gestión integral de PQRS y Tutelas. Diseñada con arquitectura orientada a eventos, garantiza procesamiento automático, aislamiento total de datos entre clientes, y trazabilidad legal completa.</p>
+      <p class="prose">El sistema procesa el ciclo completo desde la recepción del email del ciudadano hasta el envío de la respuesta firmada digitalmente, sin intervención manual en las etapas de clasificación, radicación y generación de borradores.</p>
+
+      <div class="arch-diagram">
+<span class="node">[Ciudadano]</span> → Email → <span class="node">[Buzón Cliente (Zoho/Outlook/Gmail)]</span>
+                              ↓
+                    <span class="component">[Worker de Procesamiento]</span>
+                              ↓ <span class="note">(cada 15 seg)</span>
+              ┌───────────────────────────────────┐
+              │   <span class="component">Clasificador Híbrido (IA)</span>          │
+              │   Keywords → <span class="node">Claude Haiku</span>           │
+              │   <span class="note">(solo si confianza &lt; 65%)</span>          │
+              └───────────────────────────────────┘
+                              ↓
+                    <span class="component">[PostgreSQL + RLS]</span>  ←→  <span class="component">[Redis Pub/Sub]</span>
+                              ↓                              ↓
+                    <span class="component">[Generador de Borradores]</span>    <span class="component">[SSE → Frontend]</span>
+                              ↓
+                    <span class="node">[Dashboard Abogado]</span>
+                              ↓
+              <span class="component">[Revisión → Firma Digital → Envío]</span>
+      </div>
+
+      <div id="a01-stack"></div>
+      <div class="section-title"><span class="s-num">02</span> Stack Tecnológico</div>
+
+      <div class="sub-title">Frontend</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Componente</th><th>Tecnología</th></tr></thead>
           <tbody>
-            <tr>
-              <td>URL del sistema</td>
-              <td><span class="cred-value">http://54.233.39.211:3002</span></td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td><span class="cred-value">demo@flexpqr.co</span></td>
-            </tr>
-            <tr>
-              <td>Contraseña</td>
-              <td><span class="cred-value">FlexDemo2025</span></td>
-            </tr>
-            <tr>
-              <td>Rol</td>
-              <td><span class="badge gray">Admin</span></td>
-            </tr>
+            <tr><td>Framework</td><td>Next.js 16.1.6 (App Router)</td></tr>
+            <tr><td>UI Library</td><td>React 19</td></tr>
+            <tr><td>Lenguaje</td><td>TypeScript</td></tr>
+            <tr><td>Estilos</td><td>Tailwind CSS 4</td></tr>
+            <tr><td>Estado global</td><td>Zustand</td></tr>
+            <tr><td>Tiempo real</td><td>EventSource (SSE)</td></tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="info-box amber">
-      <div class="info-box-icon">💡</div>
-      <div>
-        <strong>Recomendación:</strong> Abrí el sistema siempre en una ventana de incógnito para evitar errores causados por extensiones del navegador o cookies previas.
+      <div class="sub-title">Backend</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Componente</th><th>Tecnología</th></tr></thead>
+          <tbody>
+            <tr><td>Framework</td><td>FastAPI (Python 3.11)</td></tr>
+            <tr><td>Base de datos</td><td>PostgreSQL 15</td></tr>
+            <tr><td>Cache / Pub-Sub</td><td>Redis 7</td></tr>
+            <tr><td>Autenticación</td><td>JWT (HS256) + tenant_uuid claim</td></tr>
+            <tr><td>Almacenamiento</td><td>MinIO (S3-compatible)</td></tr>
+            <tr><td>IA Clasificación</td><td><span class="badge purple">Claude Haiku</span> — claude-haiku-4-5-20251001</td></tr>
+          </tbody>
+        </table>
       </div>
-    </div>
 
-    <div class="info-box blue">
-      <div class="info-box-icon">📧</div>
-      <div>
-        <strong>Buzón de entrada de casos (demo):</strong> <span class="cred-value">democlasificador@gmail.com</span><br>
-        Todo email enviado a esta dirección será procesado automáticamente por el sistema en menos de 60 segundos.
+      <div class="sub-title">Infraestructura</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Componente</th><th>Tecnología</th></tr></thead>
+          <tbody>
+            <tr><td>Cloud</td><td>AWS EC2</td></tr>
+            <tr><td>Containerización</td><td>Docker + Docker Compose</td></tr>
+            <tr><td>Proxy</td><td>Nginx (reverse proxy + SSL)</td></tr>
+            <tr><td>CI/CD</td><td>GitHub Actions</td></tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
 
-  <!-- ── SECCIÓN QUÉ HACE ── -->
-  <section class="section" id="que-hace">
-    <div class="page-title">
-      <div class="eyebrow">02 — El Sistema</div>
-      <h2>¿Qué hace FlexPQR?</h2>
-      <p>Una plataforma end-to-end que cubre todo el ciclo de vida de un caso PQRS, desde la recepción del email hasta el envío de la respuesta legal firmada.</p>
-    </div>
+      <div id="a01-seguridad"></div>
+      <div class="section-title"><span class="s-num">03</span> Seguridad y Aislamiento Multi-Tenant</div>
 
-    <div class="section-grid">
-      <div class="section-item">
-        <h4>📥 Recepción automática</h4>
-        <ul>
-          <li>Lee emails entrantes cada 15 segundos</li>
-          <li>Soporta Gmail, Outlook y Zoho</li>
-          <li>Sin intervención humana en la ingesta</li>
-        </ul>
+      <div class="two-col">
+        <div class="feat-item">
+          <h4>🔒 Row Level Security (PostgreSQL)</h4>
+          <ul>
+            <li>Política RLS por <code>cliente_id</code> (UUID)</li>
+            <li>Aplicada a nivel de motor, no de aplicación</li>
+            <li>Un tenant NUNCA accede a datos de otro</li>
+            <li>Contexto de sesión establecido por el backend</li>
+          </ul>
+        </div>
+        <div class="feat-item green-border">
+          <h4>🔑 Autenticación JWT</h4>
+          <ul>
+            <li><code>sub</code>: ID del usuario</li>
+            <li><code>tenant_uuid</code>: UUID del cliente</li>
+            <li><code>role</code>: super_admin | admin | abogado</li>
+            <li>Expiración configurable (default 24h)</li>
+          </ul>
+        </div>
+        <div class="feat-item amber-border">
+          <h4>📡 SSE Filtrado por Tenant</h4>
+          <ul>
+            <li>Redis pubsub → Backend SSE → Filtro → Frontend</li>
+            <li>Eventos solo del tenant autenticado</li>
+            <li>Sin fuga de datos entre sesiones</li>
+          </ul>
+        </div>
+        <div class="feat-item purple-border">
+          <h4>🛡️ Cifrado</h4>
+          <ul>
+            <li>En tránsito: HTTPS/TLS (Nginx + SSL)</li>
+            <li>En reposo: Volúmenes Docker cifrados</li>
+            <li>Contraseñas: bcrypt (work factor 12)</li>
+            <li>Credenciales en variables de entorno</li>
+          </ul>
+        </div>
       </div>
-      <div class="section-item">
-        <h4>🤖 Clasificación con IA</h4>
-        <ul>
-          <li>Modelo Claude Haiku (Anthropic)</li>
-          <li>Detecta tipo, prioridad y plazo legal</li>
-          <li>Extrae nombre y cédula del ciudadano</li>
-        </ul>
-      </div>
-      <div class="section-item">
-        <h4>📋 Radicación automática</h4>
-        <ul>
-          <li>Genera número único: PQRS-YYYY-CÓDIGO</li>
-          <li>Acuse de recibo con color por gravedad</li>
-          <li>Fecha límite de respuesta calculada</li>
-        </ul>
-      </div>
-      <div class="section-item">
-        <h4>✍️ Borrador legal IA</h4>
-        <ul>
-          <li>Busca plantilla específica primero</li>
-          <li>Genera respuesta como abogado colombiano</li>
-          <li>Queda en cola para revisión del equipo</li>
-        </ul>
-      </div>
-      <div class="section-item">
-        <h4>✅ Firma y envío</h4>
-        <ul>
-          <li>El abogado revisa y edita el borrador</li>
-          <li>Firma digital con contraseña</li>
-          <li>Envío registrado con auditoría completa</li>
-        </ul>
-      </div>
-      <div class="section-item">
-        <h4>📊 Métricas y rendimiento</h4>
-        <ul>
-          <li>Dashboard en tiempo real (SSE)</li>
-          <li>Tasa de cumplimiento por abogado</li>
-          <li>Alertas de casos próximos a vencer</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="info-box green">
-      <div class="info-box-icon">🎯</div>
-      <div>
-        <strong>Propuesta de valor central:</strong> FlexPQR reduce el tiempo de gestión por caso de horas a minutos, garantizando cumplimiento de los plazos legales establecidos por la SFC y el marco normativo colombiano.
+      <div class="code-block">
+<span class="comment">-- Política RLS en PostgreSQL</span>
+<span class="kw">CREATE POLICY</span> tenant_isolation <span class="kw">ON</span> pqrs_casos
+  <span class="kw">USING</span> (cliente_id = current_setting(<span class="str">'app.current_tenant_id'</span>)::<span class="kw">uuid</span>);
+
+<span class="comment">-- Contexto establecido por el backend antes de cada query</span>
+<span class="kw">SET</span> app.current_tenant_id = <span class="str">'&lt;uuid-del-cliente&gt;'</span>;
+<span class="kw">SET</span> app.is_superuser = <span class="str">'false'</span>;
       </div>
-    </div>
-  </section>
 
-  <!-- ── SECCIÓN FLUJO ── -->
-  <section class="section" id="flujo">
-    <div class="page-title">
-      <div class="eyebrow">03 — Flujo de trabajo</div>
-      <h2>Ciclo completo de un caso</h2>
-      <p>Desde que el ciudadano envía el email hasta que recibe la respuesta legal firmada. Todo automatizado, con supervisión humana en el paso crítico.</p>
-    </div>
+      <div id="a01-flujo"></div>
+      <div class="section-title"><span class="s-num">04</span> Flujo de Procesamiento</div>
 
-    <div class="flow-wrap">
-      <div class="flow-title">FLUJO AUTOMÁTICO DE PROCESAMIENTO</div>
-      <div class="flow-steps">
+      <div class="card">
+        <div class="card-body">
+          <table class="data-table">
+            <thead><tr><th>Paso</th><th>Descripción</th><th>Tiempo</th></tr></thead>
+            <tbody>
+              <tr><td>1 — Detección</td><td>Worker consulta el buzón via API cada 15 segundos. Solo descarga mensajes no leídos.</td><td><span class="badge green">&lt;15s</span></td></tr>
+              <tr><td>2 — Pre-filtro</td><td>Verifica palabras clave de PQRS antes de invocar IA. Emails fuera de scope se ignoran sin costo.</td><td><span class="badge green">Inmediato</span></td></tr>
+              <tr><td>3 — Clasificación</td><td>Keywords ≥65% confianza → directo. &lt;65% → Claude Haiku desambigua (~$0.001/caso). Fallback automático.</td><td><span class="badge blue">&lt;60s</span></td></tr>
+              <tr><td>4 — Radicación</td><td>Genera <code>PQRS-{año}-{código}</code>. Inserta en PostgreSQL con tipo, prioridad y vencimiento.</td><td><span class="badge green">Inmediato</span></td></tr>
+              <tr><td>5 — Acuse</td><td>Email HTML al ciudadano con radicado, tipo de caso y fecha límite legal.</td><td><span class="badge blue">&lt;90s</span></td></tr>
+              <tr><td>6 — Borrador IA</td><td>Plantilla específica → Plantilla genérica → Claude Haiku redacta como abogado colombiano.</td><td><span class="badge blue">&lt;90s</span></td></tr>
+              <tr><td>7 — Tiempo Real</td><td>Publica en Redis → SSE → Triaje en Vivo del abogado.</td><td><span class="badge green">&lt;15s</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <div class="flow-step">
-          <div class="flow-num">1</div>
-          <div class="flow-content">
-            <h4>Envío del caso por email</h4>
-            <p>El ciudadano, cliente o abogado envía un email a <strong>democlasificador@gmail.com</strong> describiendo su PQRS, queja, tutela o solicitud. No requiere formulario ni formato especial.</p>
-            <div class="flow-tags">
-              <span class="badge gray">Gmail / Outlook / Zoho</span>
-              <span class="badge gray">Texto libre</span>
-            </div>
+      <div class="sub-title">Modelo de Datos (Tablas Principales)</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Tabla</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>clientes_tenant</td><td>Registro de cada cliente (empresa) con UUID de aislamiento</td></tr>
+            <tr><td>usuarios</td><td>Abogados y admins por tenant</td></tr>
+            <tr><td>config_buzones</td><td>Configuración de buzones de email por tenant</td></tr>
+            <tr><td>pqrs_casos</td><td>Casos recibidos, clasificados y gestionados</td></tr>
+            <tr><td>pqrs_adjuntos</td><td>Archivos adjuntos vinculados a casos</td></tr>
+            <tr><td>audit_log_respuestas</td><td>Registro inmutable de todas las respuestas enviadas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="a01-compliance"></div>
+      <div class="section-title"><span class="s-num">05</span> Cumplimiento Legal Colombiano</div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="compliance-item">
+            <span class="comp-norm">Ley 1581/2012</span>
+            <div class="comp-desc"><strong>Habeas Data</strong> — Protección de datos personales de ciudadanos que envían PQRS</div>
           </div>
-        </div>
-
-        <div class="flow-step highlight">
-          <div class="flow-num">2</div>
-          <div class="flow-content">
-            <h4>Clasificación automática por IA <span class="badge ai">Claude Haiku</span></h4>
-            <p>En menos de 60 segundos, el modelo de IA analiza el email y extrae: tipo de caso, nombre del ciudadano, número de cédula (si está disponible), prioridad y plazo legal aplicable.</p>
-            <div class="flow-tags">
-              <span class="badge tutela">Tutela</span>
-              <span class="badge queja">Queja</span>
-              <span class="badge reclamo">Reclamo</span>
-              <span class="badge peticion">Petición</span>
-              <span class="badge solicitud">Solicitud</span>
-            </div>
+          <div class="compliance-item">
+            <span class="comp-norm">Ley 527/1999</span>
+            <div class="comp-desc"><strong>Firma Electrónica</strong> — Validez de respuestas con firma digital simple</div>
           </div>
-        </div>
-
-        <div class="flow-step">
-          <div class="flow-num">3</div>
-          <div class="flow-content">
-            <h4>Generación del radicado</h4>
-            <p>Se asigna automáticamente un número de radicado único con el formato:</p>
-            <div class="radicado-sample">
-              📋 PQRS-2026-7929241A
-            </div>
+          <div class="compliance-item">
+            <span class="comp-norm">Decreto 1069/2015</span>
+            <div class="comp-desc"><strong>Plazos Peticiones</strong> — 15 días hábiles ante entidades financieras</div>
           </div>
-        </div>
-
-        <div class="flow-step">
-          <div class="flow-num">4</div>
-          <div class="flow-content">
-            <h4>Acuse de recibo (email HTML)</h4>
-            <p>El sistema envía automáticamente al remitente un email de confirmación con número de radicado, tipo de caso con indicador de color según gravedad, y fecha límite de respuesta legal.</p>
-            <div class="flow-tags">
-              <span class="badge tutela">🔴 Tutela — 48h</span>
-              <span class="badge reclamo">🟠 Queja/Reclamo — 8d</span>
-              <span class="badge solicitud">🟢 Petición — 15d</span>
-            </div>
+          <div class="compliance-item">
+            <span class="comp-norm">Circular 015 SFC</span>
+            <div class="comp-desc"><strong>Quejas Financieras</strong> — 8 días hábiles para quejas y reclamos SFC</div>
           </div>
-        </div>
-
-        <div class="flow-step highlight">
-          <div class="flow-num">5</div>
-          <div class="flow-content">
-            <h4>Borrador de respuesta legal (IA)</h4>
-            <p>El sistema genera automáticamente un borrador utilizando plantillas específicas (si existen) o redactando como abogado colombiano a través de Claude Haiku. El caso queda en estado <strong>PENDIENTE</strong> para revisión.</p>
-            <div class="flow-tags">
-              <span class="badge ai">Plantilla específica</span>
-              <span class="badge ai">Plantilla genérica</span>
-              <span class="badge ai">Redacción libre IA</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flow-step">
-          <div class="flow-num">6</div>
-          <div class="flow-content">
-            <h4>Revisión, firma y envío por el abogado</h4>
-            <p>El abogado revisa y edita el borrador, ingresa su contraseña para firma digital, y confirma el envío. El sistema despacha la respuesta y registra la acción con fecha y hora en el historial de auditoría.</p>
-            <div class="flow-tags">
-              <span class="badge gray">Estado: Enviado</span>
-              <span class="badge gray">Auditoría completa</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECCIÓN DASHBOARD ── -->
-  <section class="section" id="dashboard">
-    <div class="page-title">
-      <div class="eyebrow">04 — Interfaz</div>
-      <h2>Secciones del Dashboard</h2>
-      <p>El panel de control está organizado en módulos funcionales. Cada sección está diseñada para un flujo de trabajo específico del equipo jurídico.</p>
-    </div>
-
-    <div class="card" style="margin-bottom:16px">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#EFF6FF">📊</div>
-        <div><h3>Dashboard Principal</h3><p>Vista ejecutiva en tiempo real</p></div>
-      </div>
-      <div class="card-body">
-        <div class="dash-grid" style="margin-bottom:0">
-          <div class="dash-card"><div class="dash-card-icon">📁</div><div class="dash-card-label">Total Casos</div><div class="dash-card-value" style="color:var(--blue-500)">—</div><div class="dash-card-sub">Todos los estados</div></div>
-          <div class="dash-card"><div class="dash-card-icon">🔴</div><div class="dash-card-label">Vencidos</div><div class="dash-card-value" style="color:var(--red)">—</div><div class="dash-card-sub">Requieren acción</div></div>
-          <div class="dash-card"><div class="dash-card-icon">📡</div><div class="dash-card-label">Triaje en Vivo</div><div class="dash-card-value" style="font-size:16px;color:var(--green)">SSE</div><div class="dash-card-sub">Tiempo real activo</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-grid">
-      <div class="section-item">
-        <h4>📋 Casos Activos</h4>
-        <ul>
-          <li>Cédula / ID del ciudadano</li>
-          <li>Correo de origen del caso</li>
-          <li>Estado, prioridad y tipo</li>
-          <li>Fecha de recepción y vencimiento</li>
-          <li>Click → detalle completo del caso</li>
-        </ul>
-      </div>
-      <div class="section-item" style="border-left-color:var(--amber)">
-        <h4>✍️ Por Responder</h4>
-        <ul>
-          <li>Casos con borrador IA generado</li>
-          <li>Editar borrador antes de enviar</li>
-          <li>Firma digital con contraseña</li>
-          <li>Confirmar → sistema envía respuesta</li>
-        </ul>
-      </div>
-      <div class="section-item" style="border-left-color:var(--green)">
-        <h4>✅ Enviados</h4>
-        <ul>
-          <li>Historial de respuestas ya enviadas</li>
-          <li>Fecha, contenido y destinatario</li>
-          <li>Registro de auditoría completo</li>
-        </ul>
-      </div>
-      <div class="section-item" style="border-left-color:var(--blue-300)">
-        <h4>📈 Rendimiento</h4>
-        <ul>
-          <li>Tiempo promedio de respuesta</li>
-          <li>Tasa de cumplimiento legal</li>
-          <li>Casos resueltos por abogado</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#F5F3FF">⚙️</div>
-        <div><h3>Configuración</h3><p>Panel de administración del tenant</p></div>
-      </div>
-      <div class="card-body">
-        <ul class="checklist">
-          <li><span class="check-icon">👤</span> <div><strong>Perfil:</strong> editar nombre de usuario y cambiar contraseña</div></li>
-          <li><span class="check-icon">📬</span> <div><strong>Buzones:</strong> casillas de email configuradas (solo lectura en demo)</div></li>
-          <li><span class="check-icon">👥</span> <div><strong>Equipo:</strong> gestión de abogados del tenant</div></li>
-          <li><span class="check-icon">🔔</span> <div><strong>Notificaciones:</strong> preferencias de alertas y avisos</div></li>
-          <li><span class="check-icon">🔒</span> <div><strong>Seguridad:</strong> información del tenant y estado del RLS de PostgreSQL</div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECCIÓN PLAZOS ── -->
-  <section class="section" id="plazos">
-    <div class="page-title">
-      <div class="eyebrow">Plazos Legales</div>
-      <h2>Tiempos de respuesta por tipo de caso</h2>
-      <p>FlexPQR calcula y alerta automáticamente los plazos establecidos por la normativa colombiana. El acuse de recibo incluye la fecha límite codificada por color.</p>
-    </div>
-
-    <div class="deadline-row tutela">
-      <div class="deadline-icon">🚨</div>
-      <div class="deadline-info">
-        <strong>Tutela</strong>
-        <span>Mecanismo constitucional urgente — Decreto 2591/91</span>
-      </div>
-      <div class="deadline-time">48 h</div>
-    </div>
-
-    <div class="deadline-row sfc">
-      <div class="deadline-icon">⚠️</div>
-      <div class="deadline-info">
-        <strong>Queja / Reclamo</strong>
-        <span>Circular Básica Jurídica SFC — entidades financieras</span>
-      </div>
-      <div class="deadline-time">8 días</div>
-    </div>
-
-    <div class="deadline-row normal">
-      <div class="deadline-icon">📋</div>
-      <div class="deadline-info">
-        <strong>Petición / Solicitud</strong>
-        <span>Código de Procedimiento Administrativo — Ley 1437</span>
-      </div>
-      <div class="deadline-time">15 días</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="info-box amber">
-      <div class="info-box-icon">⚠️</div>
-      <div>
-        <strong>Conteo de días hábiles:</strong> Los plazos de 8 y 15 días corresponden a días hábiles. FlexPQR realiza el cálculo considerando festivos y fines de semana conforme al calendario colombiano vigente.
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECCIÓN MULTI-TENANT ── -->
-  <section class="section" id="tenant">
-    <div class="page-title">
-      <div class="eyebrow">05 — Seguridad</div>
-      <h2>Aislamiento de datos (Multi-Tenant)</h2>
-      <p>Cada cliente opera en un entorno completamente aislado. Ningún usuario puede acceder a los casos, buzones o configuraciones de otro tenant.</p>
-    </div>
-
-    <div class="tenant-visual">
-      <div class="tenant-box demo">
-        <div class="tb-icon">🏢</div>
-        <div class="tb-name">FlexPQR Demo</div>
-        <div class="tb-sub">democlasificador@gmail.com</div>
-        <div style="margin-top:10px"><span class="badge solicitud">✓ Visible</span></div>
-      </div>
-      <div class="tenant-box other">
-        <div class="lock-overlay">🔒</div>
-        <div class="tb-icon">🏛️</div>
-        <div class="tb-name">Abogados Recovery</div>
-        <div class="tb-sub">Cliente real — aislado</div>
-        <div style="margin-top:10px"><span class="badge gray">Inaccesible</span></div>
-      </div>
-      <div class="tenant-box other">
-        <div class="lock-overlay">🔒</div>
-        <div class="tb-icon">💼</div>
-        <div class="tb-name">FlexFintech S.A.S.</div>
-        <div class="tb-sub">Cliente real — aislado</div>
-        <div style="margin-top:10px"><span class="badge gray">Inaccesible</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#F5F3FF">🛡️</div>
-        <div><h3>Mecanismos de seguridad implementados</h3><p>Arquitectura de aislamiento en múltiples capas</p></div>
-      </div>
-      <div class="card-body">
-        <ul class="checklist">
-          <li><span class="check-icon">🔒</span><div><strong>RLS en PostgreSQL:</strong> Row Level Security garantiza que cada consulta a la base de datos solo retorna registros del tenant autenticado. Imposible de saltear a nivel de aplicación.</div></li>
-          <li><span class="check-icon">📡</span><div><strong>SSE filtrado por tenant:</strong> Los eventos en tiempo real del Triaje en Vivo solo emiten casos del tenant activo. No hay fuga de datos entre sesiones concurrentes.</div></li>
-          <li><span class="check-icon">📬</span><div><strong>Buzones aislados:</strong> Cada tenant tiene su propio buzón de entrada configurado. Los emails se procesan y almacenan en el namespace del tenant correspondiente.</div></li>
-          <li><span class="check-icon">👤</span><div><strong>Roles diferenciados:</strong> Admin y Abogado tienen permisos distintos dentro del mismo tenant. Los admins gestionan el equipo; los abogados operan los casos.</div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SECCIÓN RESET ── -->
-  <section class="section" id="reset">
-    <div class="page-title">
-      <div class="eyebrow">06 — Entorno Demo</div>
-      <h2>Reset automático del entorno</h2>
-      <p>El entorno de demostración está diseñado para mantenerse limpio entre sesiones. Los datos generados durante una demo son eliminados automáticamente.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#ECFDF5">♻️</div>
-        <div>
-          <h3>Política de limpieza automática</h3>
-          <p>Mantiene el entorno fresco para cada presentación</p>
-        </div>
-      </div>
-      <div class="card-body">
-        <div style="text-align:center; padding: 24px 0">
-          <div style="font-size:64px; margin-bottom:12px">⏱️</div>
-          <div style="font-size:36px; font-weight:700; color:var(--blue-800); margin-bottom:8px">30 minutos</div>
-          <div style="font-size:14px; color:var(--gray-500)">Tiempo de vida de cada caso en el entorno demo</div>
-          <div class="progress-bar-outer" style="max-width:300px; margin:16px auto 0">
-            <div class="progress-bar-inner" style="width:65%"></div>
+          <div class="compliance-item">
+            <span class="comp-norm">Decreto 2591/1991</span>
+            <div class="comp-desc"><strong>Tutelas</strong> — Procedimiento constitucional, plazo de 48 horas</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="info-box blue">
-      <div class="info-box-icon">ℹ️</div>
-      <div>
-        <strong>¿Qué se elimina?</strong> Solo los casos creados durante la sesión de demo. Las plantillas, buzones y configuración del tenant permanecen intactos para la siguiente presentación.
+      <div class="doc-footer">
+        <div class="doc-footer-left">DOC-01 · Arquitectura Técnica · v2.0</div>
+        <div class="doc-footer-right">
+          <button class="nav-btn next" onclick="showDoc(&#39;doc03&#39;)">Propuesta Comercial →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-panel" id="panel-doc03">
+    <div class="page-header">
+      <div class="ph-eyebrow"><span class="doc-badge">DOC-03</span> Propuesta Comercial</div>
+      <h1>Sistema de Gestión Inteligente de PQRS y Tutelas</h1>
+      <p>Propuesta comercial versión 2.0. Validez 30 días calendario desde fecha de emisión.</p>
+      <div class="ph-meta">
+        <div class="ph-tag">🏢 <strong>FlexFintech Colombia S.A.S.</strong></div>
+        <div class="ph-tag">📅 Válida hasta <strong>Abril 2026</strong></div>
       </div>
     </div>
 
-    <div class="info-box green">
-      <div class="info-box-icon">✅</div>
-      <div>
-        <strong>Beneficio para las demos:</strong> No es necesario limpiar manualmente entre reuniones. Enviá el email de prueba, esperá 30-60 segundos, y el caso aparece fresco en el dashboard.
-      </div>
-    </div>
-  </section>
+    <div class="doc-content">
 
-  <!-- ── SECCIÓN PRESENTAR ── -->
-  <section class="section" id="presentar">
-    <div class="page-title">
-      <div class="eyebrow">07 — Guía Comercial</div>
-      <h2>Cómo presentar FlexPQR</h2>
-      <p>Seguí este checklist paso a paso para realizar una demo impactante. Preparar todo antes de la reunión es clave para una experiencia fluida.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-icon" style="background:#FFFBEB">📋</div>
-        <div><h3>Checklist pre-reunión</h3><p>Preparar antes de conectarse con el prospecto</p></div>
+      <div class="info-box blue">
+        <div class="info-box-icon">⚡</div>
+        <div>
+          <strong>Propuesta de valor:</strong> Reducción del tiempo de gestión por caso de <strong>45 minutos a menos de 10 minutos</strong>. Clasificación IA en menos de 60 segundos. Cumplimiento garantizado de plazos SFC, Defensoría del Pueblo y Decreto 2591/1991.
+        </div>
       </div>
-      <div class="card-body">
-        <ul class="steps-list">
-          <li>
-            <div class="step-num">1</div>
-            <div class="step-text">
-              <strong>Enviar email de prueba</strong>
-              <span>Mandar un email a <span class="cred-value">democlasificador@gmail.com</span> con cualquier descripción de queja, tutela o solicitud. Hacerlo al menos 2 minutos antes de la reunión.</span>
+
+      <div id="a03-alcance"></div>
+      <div class="section-title"><span class="s-num">01</span> Alcance y Módulos</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Módulo</th><th>Descripción</th><th>Plan</th></tr></thead>
+          <tbody>
+            <tr><td>Clasificación IA</td><td>Detección automática: Tutela, Petición, Queja, Reclamo, Solicitud</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Radicado Automático</td><td>Número único <code>PQRS-{año}-{código}</code></td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Gestión de Casos</td><td>Dashboard en tiempo real, seguimiento, vencimientos</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Acuse de Recibo</td><td>Email HTML automático con radicado y plazo legal</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Borradores Legales IA</td><td>Generación con plantillas o redacción libre por IA</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Firma Digital</td><td>Firma electrónica con contraseña + audit log</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Alertas de Vencimiento</td><td>Notificaciones automáticas por plazo y tipo</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Triaje en Vivo (SSE)</td><td>Casos entrantes en tiempo real</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Gestión Documental</td><td>Almacenamiento de adjuntos por caso</td><td><span class="badge blue">Pro / Enterprise</span></td></tr>
+            <tr><td>SharePoint</td><td>Integración Microsoft SharePoint corporativo</td><td><span class="badge purple">Enterprise</span></td></tr>
+            <tr><td>API REST</td><td>Acceso programático para integraciones</td><td><span class="badge purple">Enterprise</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="a03-planes"></div>
+      <div class="section-title"><span class="s-num">02</span> Planes y Precios</div>
+
+      <div class="plan-grid">
+        <div class="plan-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$400<span>/mes USD</span></div>
+          <div class="plan-sub">Para equipos pequeños</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature">Hasta 100 casos/mes</div>
+          <div class="plan-feature">Hasta 5 usuarios</div>
+          <div class="plan-feature">10 GB almacenamiento</div>
+          <div class="plan-feature">Soporte por email</div>
+          <div class="plan-feature">Todos los módulos base</div>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-name">Professional</div>
+          <div class="plan-price">$700<span>/mes USD</span></div>
+          <div class="plan-sub">Para equipos medianos</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature">Hasta 300 casos/mes</div>
+          <div class="plan-feature">Hasta 15 usuarios</div>
+          <div class="plan-feature">50 GB almacenamiento</div>
+          <div class="plan-feature">Soporte chat (horario hábil)</div>
+          <div class="plan-feature">Gestión documental</div>
+          <div class="plan-feature">Métricas de rendimiento</div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">$1.200<span>/mes USD</span></div>
+          <div class="plan-sub">Para grandes organizaciones</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature">Casos ilimitados</div>
+          <div class="plan-feature">Usuarios ilimitados</div>
+          <div class="plan-feature">200 GB almacenamiento</div>
+          <div class="plan-feature">WhatsApp prioritario</div>
+          <div class="plan-feature">Integración SharePoint</div>
+          <div class="plan-feature">API REST completa</div>
+          <div class="plan-feature">Línea de emergencias 24/7</div>
+        </div>
+      </div>
+
+      <div class="sub-title">Fee de Implementación (Pago Único)</div>
+      <div class="card">
+        <div class="card-body">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+            <div>
+              <div style="font-size:13px;color:var(--gray-500);margin-bottom:4px">Fee único de implementación — todo incluido</div>
+              <div style="font-size:32px;font-weight:800;color:var(--blue-900)">$4.000 <span style="font-size:14px;font-weight:400;color:var(--gray-400)">USD</span></div>
             </div>
-          </li>
-          <li>
-            <div class="step-num">2</div>
-            <div class="step-text">
-              <strong>Verificar el caso en el dashboard</strong>
-              <span>Esperar 30-60 segundos y confirmar que el caso aparece clasificado en "Casos Activos". Verificar que el tipo, prioridad y radicado se generaron correctamente.</span>
+            <div style="text-align:right">
+              <div style="font-size:11px;color:var(--gray-400)">Pago: 50% al inicio / 50% en Go-Live</div>
+              <span class="badge green" style="margin-top:6px">Incluye todo</span>
             </div>
-          </li>
-          <li>
-            <div class="step-num">3</div>
-            <div class="step-text">
-              <strong>Verificar el acuse de recibo</strong>
-              <span>Revisar en el email del remitente que llegó el acuse de recibo HTML con el radicado, el color de gravedad y la fecha límite de respuesta. Mostrarlo en el celular del prospecto es muy efectivo.</span>
+          </div>
+          <ul class="checklist">
+            <li><span class="check-icon">✅</span>Configuración de ambiente cloud dedicado</li>
+            <li><span class="check-icon">✅</span>Integración con proveedor de email (Outlook / Zoho / Gmail)</li>
+            <li><span class="check-icon">✅</span>Hasta 20 plantillas de respuesta personalizadas</li>
+            <li><span class="check-icon">✅</span>Migración de hasta 1.000 registros históricos</li>
+            <li><span class="check-icon">✅</span>Configuración de usuarios y roles (ilimitados iniciales)</li>
+            <li><span class="check-icon">✅</span>Capacitación inicial: 4 horas en vivo (remoto)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="a03-cronograma"></div>
+      <div class="section-title"><span class="s-num">03</span> Cronograma de Implementación</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Fase</th><th>Días</th><th>Actividades</th><th>Responsable</th></tr></thead>
+          <tbody>
+            <tr><td>Kick-off</td><td>Día 1</td><td>Reunión de levantamiento, entrega de credenciales</td><td>Cliente + FlexPQR</td></tr>
+            <tr><td>Configuración</td><td>Días 2-4</td><td>Ambiente cloud, base de datos, seguridad</td><td>FlexPQR</td></tr>
+            <tr><td>Integración Email</td><td>Días 5-7</td><td>Conexión al buzón del cliente, testing</td><td>FlexPQR + Cliente</td></tr>
+            <tr><td>Plantillas</td><td>Días 8-9</td><td>Carga de plantillas de respuesta del cliente</td><td>FlexPQR</td></tr>
+            <tr><td>Testing</td><td>Días 10-12</td><td>Pruebas funcionales con casos reales</td><td>FlexPQR + Cliente</td></tr>
+            <tr><td>Capacitación</td><td>Día 13</td><td>Entrenamiento a admin y abogados</td><td>FlexPQR</td></tr>
+            <tr><td><strong>Go-Live</strong></td><td><strong>Día 14</strong></td><td>Paso a producción, soporte intensivo 48h</td><td>FlexPQR</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="a03-pago"></div>
+      <div class="section-title"><span class="s-num">04</span> Forma de Pago y Descuentos</div>
+
+      <div class="two-col">
+        <div class="feat-item">
+          <h4>💳 Métodos aceptados</h4>
+          <ul>
+            <li>Transferencia bancaria (Bancolombia / Davivienda)</li>
+            <li>Tarjeta de crédito corporativa (+3.5% comisión)</li>
+            <li>PSE (pagos en línea Colombia)</li>
+          </ul>
+        </div>
+        <div class="feat-item green-border">
+          <h4>🏷️ Descuentos disponibles</h4>
+          <ul>
+            <li>Pago anual anticipado: <strong>15% descuento</strong></li>
+            <li>Contrato 24 meses: <strong>20% descuento</strong></li>
+            <li>Pago semestral: <strong>8% descuento</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doc-footer">
+        <div class="doc-footer-left">DOC-03 · Propuesta Comercial v2.0 · Válida 30 días</div>
+        <div class="doc-footer-right">
+          <button class="nav-btn prev" onclick="showDoc(&#39;doc01&#39;)">← Arquitectura</button>
+          <button class="nav-btn next" onclick="showDoc(&#39;doc04&#39;)">SLA →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ DOC 04 — SLA ══════════ -->
+  <div class="doc-panel" id="panel-doc04">
+    <div class="page-header">
+      <div class="ph-eyebrow"><span class="doc-badge">DOC-04</span> Service Level Agreement</div>
+      <h1>Acuerdo de Nivel de Servicio — SLA</h1>
+      <p>Compromisos de disponibilidad, tiempos de respuesta del sistema, soporte técnico y política de backups.</p>
+      <div class="ph-meta">
+        <div class="ph-tag">⚖️ <strong>Documento contractual</strong></div>
+        <div class="ph-tag">📅 Vigencia desde <strong>Marzo 2026</strong></div>
+      </div>
+    </div>
+
+    <div class="doc-content">
+
+      <div id="a04-uptime"></div>
+      <div class="section-title"><span class="s-num">01</span> Uptime Garantizado</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Plan</th><th>Disponibilidad</th><th>Inactividad máx/mes</th></tr></thead>
+          <tbody>
+            <tr><td>Starter</td><td><span class="badge amber">99.0%</span></td><td>7.2 horas</td></tr>
+            <tr><td>Professional</td><td><span class="badge blue">99.5%</span></td><td>3.6 horas</td></tr>
+            <tr><td>Enterprise</td><td><span class="badge green">99.8%</span></td><td>1.5 horas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sub-title">Créditos por Incumplimiento</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Disponibilidad alcanzada</th><th>Crédito sobre suscripción mensual</th></tr></thead>
+          <tbody>
+            <tr><td>98.0% – 99.0% (Starter) / 99.5% (Pro)</td><td><span class="badge amber">10%</span></td></tr>
+            <tr><td>95.0% – 97.9%</td><td><span class="badge amber">25%</span></td></tr>
+            <tr><td>&lt; 95.0%</td><td><span class="badge red">50%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box amber">
+        <div class="info-box-icon">⚠️</div>
+        <div><strong>Exclusiones:</strong> Los créditos no aplican por fuerza mayor, mantenimiento planificado notificado, acciones del Suscriptor, ni fallas en servicios de terceros (AWS, Microsoft Graph API, Zoho API).</div>
+      </div>
+
+      <div id="a04-performance"></div>
+      <div class="section-title"><span class="s-num">02</span> Performance del Sistema</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Operación</th><th>Tiempo objetivo (p95)</th><th>Máximo aceptable</th></tr></thead>
+          <tbody>
+            <tr><td>Login y autenticación</td><td>&lt;1 segundo</td><td>3 segundos</td></tr>
+            <tr><td>Carga del dashboard</td><td>&lt;2 segundos</td><td>5 segundos</td></tr>
+            <tr><td>Listado de casos activos</td><td>&lt;1.5 segundos</td><td>4 segundos</td></tr>
+            <tr><td>Envío de respuesta</td><td>&lt;3 segundos</td><td>8 segundos</td></tr>
+            <tr><td>Clasificación IA de un caso</td><td>&lt;60 segundos</td><td>120 segundos</td></tr>
+            <tr><td>Aparición en Triaje en Vivo</td><td>&lt;15 segundos</td><td>—</td></tr>
+            <tr><td>Email → Caso listo para revisión</td><td>&lt;3 minutos</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="a04-soporte"></div>
+      <div class="section-title"><span class="s-num">03</span> Severidades y Tiempos de Soporte</div>
+
+      <div class="sev-row s1">
+        <div class="sev-badge">S1</div>
+        <div class="sev-info">
+          <strong>Crítico — Sistema caído / Tutelas no procesándose</strong>
+          <span>Falla que impide completamente el acceso o procesamiento de tutelas activas</span>
+        </div>
+        <div class="sev-times">
+          <div class="t1">2h respuesta</div>
+          <div class="t2">4h resolución · 24/7</div>
+        </div>
+      </div>
+
+      <div class="sev-row s2">
+        <div class="sev-badge">S2</div>
+        <div class="sev-info">
+          <strong>Mayor — Funcionalidad principal degradada</strong>
+          <span>Clasificación IA, dashboard o envío de respuestas afectados, sistema parcialmente accesible</span>
+        </div>
+        <div class="sev-times">
+          <div class="t1">4h respuesta</div>
+          <div class="t2">8h resolución · hábil</div>
+        </div>
+      </div>
+
+      <div class="sev-row s3">
+        <div class="sev-badge">S3</div>
+        <div class="sev-info">
+          <strong>Menor — Funcionalidad secundaria afectada</strong>
+          <span>Degradación en funcionalidades de baja criticidad</span>
+        </div>
+        <div class="sev-times">
+          <div class="t1">8h respuesta</div>
+          <div class="t2">3 días resolución</div>
+        </div>
+      </div>
+
+      <div class="sev-row s4">
+        <div class="sev-badge">S4</div>
+        <div class="sev-info">
+          <strong>Consulta — Pregunta de uso o mejora sugerida</strong>
+          <span>Solicitudes no urgentes, dudas de operación o nuevas funcionalidades</span>
+        </div>
+        <div class="sev-times">
+          <div class="t1">2d respuesta</div>
+          <div class="t2">10 días resolución</div>
+        </div>
+      </div>
+
+      <div class="info-box red">
+        <div class="info-box-icon">🚨</div>
+        <div><strong>Escalamiento automático:</strong> Los incidentes S1 relacionados con tutelas activas se escalan automáticamente a máxima prioridad dado el plazo legal de 48 horas.</div>
+      </div>
+
+      <div id="a04-backups"></div>
+      <div class="section-title"><span class="s-num">04</span> Respaldo y Recuperación</div>
+
+      <div class="two-col">
+        <div class="feat-item green-border">
+          <h4>💾 Política de Backups</h4>
+          <ul>
+            <li>Base de datos (PostgreSQL): diario, 30 días retención</li>
+            <li>Archivos adjuntos (MinIO): diario, 90 días retención</li>
+            <li>Configuración del sistema: diario, Git privado</li>
+            <li>Almacenamiento: Snapshot EBS AWS</li>
+          </ul>
+        </div>
+        <div class="feat-item blue">
+          <h4>🔄 Objetivos de Recuperación</h4>
+          <ul>
+            <li><strong>RPO</strong> (máx. pérdida de datos): 24 horas</li>
+            <li><strong>RTO</strong> (tiempo máx. restauración): 4 horas</li>
+            <li>Restauración desde backup completo disponible</li>
+            <li>Workers independientes del frontend</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-title">Canales de Soporte por Plan</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Canal</th><th>Horario</th><th>Planes</th></tr></thead>
+          <tbody>
+            <tr><td>Email: <a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b38243b24393f2e0b2d272e333b3a39652824">[email&nbsp;protected]</a></td><td>Lun-Vie 8:00-18:00 COT</td><td><span class="badge green">Todos</span></td></tr>
+            <tr><td>Chat en el dashboard</td><td>Lun-Vie 8:00-18:00 COT</td><td><span class="badge blue">Pro / Enterprise</span></td></tr>
+            <tr><td>WhatsApp prioritario</td><td>Lun-Vie 7:00-20:00 COT</td><td><span class="badge purple">Enterprise</span></td></tr>
+            <tr><td>Línea de emergencias (tutelas)</td><td>24/7</td><td><span class="badge purple">Enterprise</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="doc-footer">
+        <div class="doc-footer-left">DOC-04 · SLA v1.0 · Vigente desde Marzo 2026</div>
+        <div class="doc-footer-right">
+          <button class="nav-btn prev" onclick="showDoc(&#39;doc03&#39;)">← Propuesta</button>
+          <button class="nav-btn next" onclick="showDoc(&#39;doc05&#39;)">Términos →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ DOC 05 — T&C ══════════ -->
+  <div class="doc-panel" id="panel-doc05">
+    <div class="page-header">
+      <div class="ph-eyebrow"><span class="doc-badge">DOC-05</span> Términos y Condiciones</div>
+      <h1>Términos y Condiciones de Uso</h1>
+      <p>Marco legal completo para el uso de la plataforma FlexPQR. Vigente desde el 1 de marzo de 2026.</p>
+      <div class="ph-meta">
+        <div class="ph-tag">⚖️ <strong>Documento legal</strong></div>
+        <div class="ph-tag">📅 Versión <strong>1.0 · Marzo 2026</strong></div>
+      </div>
+    </div>
+
+    <div class="doc-content">
+
+      <div class="info-box blue">
+        <div class="info-box-icon">ℹ️</div>
+        <div><strong>Partes del acuerdo:</strong> <strong>Proveedor</strong> = FlexFintech Colombia S.A.S. · <strong>Suscriptor</strong> = persona jurídica que suscribe un plan · <strong>Usuario</strong> = abogado o administrador que accede a la plataforma.</div>
+      </div>
+
+      <div id="a05-uso"></div>
+      <div class="section-title"><span class="s-num">01</span> Uso Aceptable</div>
+
+      <div class="two-col">
+        <div class="feat-item green-border">
+          <h4>✅ Usos permitidos</h4>
+          <ul>
+            <li>Gestión de PQRS y Tutelas propias del Suscriptor</li>
+            <li>Cumplimiento de obligaciones legales ante ciudadanos</li>
+            <li>Uso interno por abogados y administradores</li>
+          </ul>
+        </div>
+        <div class="feat-item red-border">
+          <h4>🚫 Usos prohibidos</h4>
+          <ul>
+            <li>Acceder a datos de otros Suscriptores</li>
+            <li>Ingeniería inversa o modificación del software</li>
+            <li>Compartir credenciales fuera de la organización</li>
+            <li>Scraping o extracción automatizada de datos</li>
+            <li>Spam o comunicaciones masivas no solicitadas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="a05-datos"></div>
+      <div class="section-title"><span class="s-num">02</span> Tratamiento de Datos Personales</div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="compliance-item">
+            <span class="comp-norm">Ley 1581/2012</span>
+            <div class="comp-desc"><strong>Marco de referencia.</strong> El tratamiento de Datos Personales se rige por la Ley 1581/2012 y el Decreto 1377/2013.</div>
+          </div>
+          <div class="compliance-item">
+            <span class="comp-norm">Responsable</span>
+            <div class="comp-desc">El <strong>Suscriptor</strong> actúa como Responsable del Tratamiento de los datos de los ciudadanos que envían PQRS.</div>
+          </div>
+          <div class="compliance-item">
+            <span class="comp-norm">Encargado</span>
+            <div class="comp-desc">El <strong>Proveedor (FlexFintech)</strong> actúa como Encargado del Tratamiento, procesando datos bajo instrucciones del Suscriptor.</div>
+          </div>
+          <div class="compliance-item">
+            <span class="comp-norm">AWS us-east-1</span>
+            <div class="comp-desc"><strong>Transferencia internacional:</strong> Los datos se alojan en AWS región us-east-1 (EE.UU.). Autorizada por el Suscriptor al aceptar estos términos, bajo Art. 26 Ley 1581/2012.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="a05-pi"></div>
+      <div class="section-title"><span class="s-num">03</span> Propiedad Intelectual</div>
+
+      <div class="two-col">
+        <div class="feat-item purple-border">
+          <h4>🏢 Propiedad del Proveedor</h4>
+          <ul>
+            <li>Software FlexPQR (código, diseño, arquitectura)</li>
+            <li>Documentación y marca registrada</li>
+            <li>Licencia de uso: no exclusiva, intransferible, revocable</li>
+            <li>Vigente durante el contrato</li>
+          </ul>
+        </div>
+        <div class="feat-item green-border">
+          <h4>📁 Propiedad del Suscriptor</h4>
+          <ul>
+            <li>Casos, documentos y respuestas generadas</li>
+            <li>Plantillas personalizadas</li>
+            <li>El Proveedor no adquiere derechos sobre estos datos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="a05-terminacion"></div>
+      <div class="section-title"><span class="s-num">04</span> Vigencia, Terminación y Pagos</div>
+
+      <div class="card">
+        <div class="card-body">
+          <ul class="checklist">
+            <li><span class="check-icon">📅</span><div><strong>Inicio:</strong> Fecha de firma de la Propuesta Comercial. Vigencia según plan contratado (mensual, semestral o anual).</div></li>
+            <li><span class="check-icon">🔔</span><div><strong>Cancelación por el Suscriptor:</strong> 30 días de anticipación al final del período. Sin penalidad.</div></li>
+            <li><span class="check-icon">⚠️</span><div><strong>Cancelación por el Proveedor:</strong> Inmediata por incumplimiento grave (impago +30 días, fraude, uso prohibido). Con 30 días de anticipación por decisión comercial.</div></li>
+            <li><span class="check-icon">💳</span><div><strong>Mora:</strong> Pagos vencidos devengan interés a tasa máxima legal. El servicio puede suspenderse a los 10 días hábiles de mora.</div></li>
+            <li><span class="check-icon">🗑️</span><div><strong>Al terminar el contrato:</strong> 30 días para exportar datos. Transcurrido ese plazo, los datos son eliminados de forma segura con certificado disponible.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-title">Resolución de Conflictos</div>
+      <div class="card">
+        <div class="card-body">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--blue-900);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">1</div>
+              <div><strong style="font-size:13px">Negociación directa</strong><br><span style="font-size:12px;color:var(--gray-500)">30 días calendario entre las partes</span></div>
             </div>
-          </li>
-          <li>
-            <div class="step-num">4</div>
-            <div class="step-text">
-              <strong>Mostrar "Por Responder"</strong>
-              <span>Navegar a la sección "Por Responder" y abrir el borrador generado por IA. Destacar que la respuesta es legalmente válida y específica para el tipo de caso.</span>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--blue-700);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">2</div>
+              <div><strong style="font-size:13px">Mediación</strong><br><span style="font-size:12px;color:var(--gray-500)">Centro de Arbitraje — Cámara de Comercio de Bogotá</span></div>
             </div>
-          </li>
-          <li>
-            <div class="step-num">5</div>
-            <div class="step-text">
-              <strong>Aprobar y enviar la respuesta</strong>
-              <span>Ingresar la contraseña <span class="cred-value">FlexDemo2025</span> para la firma digital y confirmar el envío. Mostrar que el email de respuesta llega al remitente original.</span>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--blue-500);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">3</div>
+              <div><strong style="font-size:13px">Arbitraje vinculante</strong><br><span style="font-size:12px;color:var(--gray-500)">Centro de Arbitraje y Conciliación CCB — bajo reglamentos vigentes</span></div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="info-box blue">
-      <div class="info-box-icon">🎯</div>
-      <div>
-        <strong>Tip de presentación:</strong> Pedile al prospecto que él mismo envíe el email de prueba desde su celular. Que vea cómo en menos de 60 segundos su solicitud ya está radicada y con borrador de respuesta generado. El impacto es inmediato.
+      <div class="sub-title">Contacto Legal</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Asunto</th><th>Contacto</th></tr></thead>
+          <tbody>
+            <tr><td>Consultas legales y contractuales</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dab6bfbdbbb69abcb6bfa2aaaba8f4b9b5">[email&nbsp;protected]</a></td></tr>
+            <tr><td>Tratamiento de datos personales</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="345055405b47745258514c4445461a575b">[email&nbsp;protected]</a></td></tr>
+            <tr><td>Soporte técnico</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="285b4758475a5c4d684e444d5058595a064b47">[email&nbsp;protected]</a></td></tr>
+            <tr><td>Comercial</td><td><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d6e6260687f6e646c614d6b6168757d7c7f236e62">[email&nbsp;protected]</a></td></tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
 
-  <!-- ── SECCIÓN PRODUCCIÓN ── -->
-  <section class="section" id="produccion">
-    <div class="page-title">
-      <div class="eyebrow">08 — Onboarding</div>
-      <h2>Credenciales de Producción / Onboarding</h2>
-      <p>En producción, cada cliente recibe un entorno completamente configurado y personalizado a sus necesidades operativas y normativas.</p>
-    </div>
-
-    <div class="prod-grid">
-      <div class="prod-item">
-        <div class="prod-item-icon">🏢</div>
-        <div>
-          <h4>Tenant propio y aislado</h4>
-          <p>Espacio de datos completamente independiente con RLS garantizado en PostgreSQL.</p>
-        </div>
-      </div>
-      <div class="prod-item">
-        <div class="prod-item-icon">📬</div>
-        <div>
-          <h4>Buzones propios configurados</h4>
-          <p>Conexión a buzones Outlook, Zoho Mail o Gmail corporativo del cliente.</p>
-        </div>
-      </div>
-      <div class="prod-item">
-        <div class="prod-item-icon">📄</div>
-        <div>
-          <h4>Plantillas personalizadas</h4>
-          <p>Respuestas estandarizadas del cliente cargadas en el sistema para cada tipo de caso.</p>
-        </div>
-      </div>
-      <div class="prod-item">
-        <div class="prod-item-icon">👥</div>
-        <div>
-          <h4>Roles diferenciados</h4>
-          <p>Usuarios Admin y Abogado con permisos configurados según la estructura del equipo.</p>
-        </div>
-      </div>
-      <div class="prod-item">
-        <div class="prod-item-icon">🔗</div>
-        <div>
-          <h4>Integraciones en roadmap</h4>
-          <p>Datacrédito, SFC y sistemas internos del cliente.</p>
-          <span class="roadmap-tag">Roadmap</span>
-        </div>
-      </div>
-      <div class="prod-item">
-        <div class="prod-item-icon">📊</div>
-        <div>
-          <h4>Reportes y auditoría</h4>
-          <p>Historial completo exportable con métricas de cumplimiento para auditorías regulatorias.</p>
+      <div class="doc-footer">
+        <div class="doc-footer-left">DOC-05 · Términos y Condiciones v1.0 · Marzo 2026</div>
+        <div class="doc-footer-right">
+          <button class="nav-btn prev" onclick="showDoc(&#39;doc04&#39;)">← SLA</button>
+          <button class="nav-btn next" onclick="showDoc(&#39;cover&#39;)">⌂ Inicio</button>
         </div>
       </div>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="info-box green">
-      <div class="info-box-icon">🚀</div>
-      <div>
-        <strong>Proceso de onboarding:</strong> La puesta en marcha de un nuevo cliente toma entre 3 y 5 días hábiles, incluyendo configuración del tenant, conexión de buzones, carga de plantillas y capacitación del equipo jurídico.
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-logo">FlexPQR · Plataforma de Gestión PQRS</div>
-    <div class="footer-text">Documento interno · Entorno Demo · 2025</div>
   </div>
 
 </main>
 
-<script>
-  function showSection(id) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    // Remove active from all nav items
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+<script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const docTitles = {
+  'cover': 'Portal de Documentación FlexPQR',
+  'doc01': 'DOC-01 — Arquitectura Técnica',
+  'doc03': 'DOC-03 — Propuesta Comercial',
+  'doc04': 'DOC-04 — SLA',
+  'doc05': 'DOC-05 — Términos y Condiciones'
+};
 
-    // Show target section
-    const target = document.getElementById(id);
-    if (target) target.classList.add('active');
+function showDoc(id) {
+  // Hide all panels
+  document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+  // Show target
+  const panel = document.getElementById('panel-' + id);
+  if (panel) panel.classList.add('active');
 
-    // Activate nav item
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(`'${id}'`)) {
-        item.classList.add('active');
-      }
-    });
+  // Update header title
+  const titleEl = document.getElementById('headerDocTitle');
+  if (titleEl) titleEl.innerHTML = id === 'cover'
+    ? 'Portal de Documentación Técnica y Comercial'
+    : '<span>' + docTitles[id] + '</span>';
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Update sidebar active state
+  document.querySelectorAll('.doc-group-header').forEach(h => h.classList.remove('active'));
+  if (id !== 'cover') {
+    const num = id.replace('doc', '');
+    const grp = document.getElementById('grp-' + num);
+    if (grp) grp.querySelector('.doc-group-header').classList.add('active');
   }
-</script>
 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-
-</body></html>
+function toggleGroup(grpId) {
+  const subNav = document.getElementById('sub-' + grpId);
+  if (!subNav) return;
+  const isOpen = subNav.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.sub-nav').forEach(s => s.classList.remove('open'));
+  if (!isOpen) s</script></body></html>
